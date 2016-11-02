@@ -34,21 +34,25 @@ int 	m_read_cmd(char **cmd)
 
 int		main(int ac, char **av, char **envp)
 {
+	t_app	app;
 	//pid_t	pid;
 	//pid_t	pid2;
 
-
+	ft_bzero(&app, sizeof(t_app));
 	if (av[1] && ac && envp)
 		;
-	char *cmd;
+	m_set_envp(&app, envp);
+	m_free_lst_envp(&app);
+	//char *cmd;
 
-	while (1)
+	/*while (1)
 	{
 		cmd = ft_strdup("");
 		ft_putstr("$> ");
 		m_read_cmd(&cmd);
 		ft_strdel(&cmd);
-	}
+	}*/
 
+	//sleep(10);
 	return 0;
 }

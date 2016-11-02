@@ -96,7 +96,10 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_new.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/minishell" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

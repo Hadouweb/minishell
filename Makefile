@@ -13,6 +13,9 @@ LIB = -L$(LIBFTPATH) -lft
 LIBNAME = $(LIBFTPATH)/libft.a
 
 SRC = 	$(SRCPATH)/main.c\
+        $(SRCPATH)/m_set_data.c\
+        $(SRCPATH)/m_debug.c\
+        $(SRCPATH)/m_free_memory.c\
 
 OBJ = $(SRC:.c=.o)
 
@@ -23,10 +26,6 @@ all: $(NAME)
 $(NAME): $(LIBNAME) $(OBJ)
 	@$(CC) -o $@ $(LIB) $^
 	@echo "\n\033[39mCompilation done.\033[0m"
-<<<<<<< HEAD
-=======
-
->>>>>>> 49da9b49213af31f6b1d85f3dfbf4ec18978dab7
 
 $(LIBNAME):
 	@make -C $(LIBFTPATH)

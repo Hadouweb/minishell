@@ -97,6 +97,9 @@ set(SOURCE_FILES
     libft/srcs/get_next_line.c
     libft/srcs/str/ft_nblen.c
     srcs/main.c
+    srcs/m_set_data.c
+    srcs/m_debug.c
+    srcs/m_free_memory.c
     auteur
     Makefile
     minishell)
