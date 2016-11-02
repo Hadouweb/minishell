@@ -1,15 +1,5 @@
 #include "minishell.h"
 
-pid_t	m_new_process(void)
-{
-	pid_t	pid;
-
-	pid = fork();
-	if (pid == -1)
-		printf("Error pid\n");
-	return pid;
-}
-
 void	m_run_cmd(char *path, char **argv, char **env)
 {
 	int		val;
@@ -20,25 +10,45 @@ void	m_run_cmd(char *path, char **argv, char **env)
 		printf("Error execve\n");
 }
 
-int		main(int ac, char **av)
+int 	m_read_cmd(char **cmd)
 {
-	pid_t	pid;
-	char 	*argv[] = { "ls", "-1", ".", NULL };
+	int 	ret;
+	char 	buf[11];
+	int 	token_break;
 
-
-	pid = m_new_process();
-	if (pid == 0)
-		printf("________ Parent process: [%d] in child\n", pid);
-	if (pid > 0)
-		printf("________ Child process: [%d] in Parent\n", pid);
-
-	if (ac > 1 && pid == 0) {
-		m_run_cmd(av[1], argv, NULL);
-		sleep(10);
+	token_break = 0;
+	while ((ret = read(0, &buf, 10)) != -1)
+	{
+		buf[ret] = '\0';
+		if (buf[ret - 1] == '\n') {
+			buf[ret - 1] = '\0';
+			token_break = 1;
+		}
+		*cmd = ft_strjoin(*cmd, buf);
+		if (token_break)
+			break;
 	}
-	if (pid > 0)
-		wait(&pid);
-	printf("______________________ LOL _______________\n");
+	printf("Buf: [%s]\n", *cmd);
+	return ret;
+}
+
+int		main(int ac, char **av, char **envp)
+{
+	//pid_t	pid;
+	//pid_t	pid2;
+
+
+	if (av[1] && ac && envp)
+		;
+	char *cmd;
+
+	while (1)
+	{
+		cmd = ft_strdup("");
+		ft_putstr("$> ");
+		m_read_cmd(&cmd);
+		ft_strdel(&cmd);
+	}
 
 	return 0;
 }
