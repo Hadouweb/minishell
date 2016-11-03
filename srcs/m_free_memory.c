@@ -54,3 +54,9 @@ void	m_free_env_from_lst(t_app *app)
 	free(app->env);
 	app->env = NULL;
 }
+
+void	m_free_all(t_app *app)
+{
+	m_free_lst_envp(app);
+	m_free_env_from_lst(app);
+}

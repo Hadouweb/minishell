@@ -12,6 +12,7 @@ t_env	m_get_env_struct(char *env)
 	tenv.lst_value = NULL;
 	if (ft_strcmp(tenv.key, "PATH") == 0)
 		tenv.lst_value = ft_lstsplit(tenv.value, ':');
+	ft_lstprint(tenv.lst_value, NULL);
 	return (tenv);
 }
 
@@ -19,6 +20,7 @@ void	m_set_envp(t_app *app, char **envp)
 {
 	int 	i;
 	t_env	env;
+	t_list	*l;
 
 	i = 0;
 	while (envp[i] != NULL)
@@ -27,7 +29,13 @@ void	m_set_envp(t_app *app, char **envp)
 		ft_lstpush_back(&app->lst_env, (void*)&env, sizeof(t_env));
 		i++;
 	}
-
+	l = app->lst_env;
+	while (l)
+	{
+		if (ft_strcmp(((t_env*)l->content)->key, "PATH") == 0)
+			app->path_node = l;
+		l = l->next;
+	}
 	//ft_lstprint(app->lst_env, m_debug_content_env);
 }
 

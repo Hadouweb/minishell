@@ -101,6 +101,7 @@ set(SOURCE_FILES
     srcs/m_debug.c
     srcs/m_free_memory.c
     srcs/m_error.c
+    srcs/m_run_cmd.c
     auteur
     Makefile
     minishell)
