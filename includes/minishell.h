@@ -19,6 +19,7 @@ typedef struct		s_app
 {
 	t_list			*lst_env;
 	t_list			*path_node;
+	t_list			*param;
 	pid_t 			pid;
 	char 			**env;
 }					t_app;
@@ -34,5 +35,9 @@ void	m_free_all(t_app *app);
 int		m_check_builtin(t_app *app, char *cmd);
 void	m_run_cmd(t_app *app, char *cmd);
 char 	*m_get_cmd_path(t_app *app, char *cmd);
-char 	*m_get_cmd_arg(char *cmd);
+char 	**m_get_cmd_arg(char *cmd);
+void	m_error(char *str, char *file);
+void	m_error_access(char *cmd, int code);
+void	m_set_cmd(t_app *app, char *cmd);
+
 #endif

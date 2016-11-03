@@ -18,6 +18,7 @@ SRC = 	$(SRCPATH)/main.c\
         $(SRCPATH)/m_free_memory.c\
         $(SRCPATH)/m_error.c\
         $(SRCPATH)/m_run_cmd.c\
+        $(SRCPATH)/m_util.c\
 
 OBJ = $(SRC:.c=.o)
 
