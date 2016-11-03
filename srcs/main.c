@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-void	m_run_cmd(char *path, char **argv, char **env)
+/*void	m_run_cmd(t_app *app, char *path, char **argv)
 {
 	int		val;
 
@@ -8,7 +8,7 @@ void	m_run_cmd(char *path, char **argv, char **env)
 	val = execve(path, argv, env);
 	if (val == -1)
 		printf("Error execve\n");
-}
+}*/
 
 int 	m_read_cmd(char **cmd)
 {
@@ -24,35 +24,43 @@ int 	m_read_cmd(char **cmd)
 			buf[ret - 1] = '\0';
 			token_break = 1;
 		}
-		*cmd = ft_strjoin(*cmd, buf);
+		*cmd = ft_strjoin_free_s1(*cmd, buf);
 		if (token_break)
 			break;
 	}
-	printf("Buf: [%s]\n", *cmd);
 	return ret;
+}
+
+void	m_check_builtin(t_app *app, char *cmd)
+{
+	if (ft_strcmp(cmd, "exit") == 0) {
+		m_free_lst_envp(app);
+		exit(0);
+	}
 }
 
 int		main(int ac, char **av, char **envp)
 {
 	t_app	app;
-	//pid_t	pid;
-	//pid_t	pid2;
+	//char	*cmd;
 
-	ft_bzero(&app, sizeof(t_app));
-	if (av[1] && ac && envp)
+	if (av && ac)
 		;
+	ft_bzero(&app, sizeof(t_app));
 	m_set_envp(&app, envp);
-	m_free_lst_envp(&app);
-	//char *cmd;
+	m_set_env_from_lst(&app);
+	m_debug_env(app.env);
 
 	/*while (1)
 	{
 		cmd = ft_strdup("");
 		ft_putstr("$> ");
 		m_read_cmd(&cmd);
+		//printf("Buf: [%s]\n", cmd);
+		m_check_builtin(&app, cmd);
 		ft_strdel(&cmd);
 	}*/
-
-	//sleep(10);
+	m_free_lst_envp(&app);
+	m_free_env_from_lst(&app);
 	return 0;
 }

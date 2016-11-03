@@ -19,3 +19,15 @@ void	m_debug_content_env(void *content)
 		l = l->next;
 	}
 }
+
+void	m_debug_env(char **env)
+{
+	int 	i;
+
+	i = 0;
+	while (env[i] != NULL)
+	{
+		printf("%s\n", env[i]);
+		i++;
+	}
+}

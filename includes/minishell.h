@@ -18,10 +18,16 @@ typedef	struct 		s_env
 typedef struct		s_app
 {
 	t_list			*lst_env;
+	pid_t 			pid;
+	char 			**env;
 }					t_app;
 
 void	m_set_envp(t_app *app, char **envp);
 void	m_debug_content_env(void *content);
 void	m_free_lst_envp(t_app *app);
+void	m_set_env_from_lst(t_app *app);
+void	m_debug_env(char **env);
+void	m_error_malloc(char *str);
+void	m_free_env_from_lst(t_app *app);
 
 #endif
