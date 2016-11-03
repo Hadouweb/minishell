@@ -12,7 +12,6 @@ t_env	m_get_env_struct(char *env)
 	tenv.lst_value = NULL;
 	if (ft_strcmp(tenv.key, "PATH") == 0)
 		tenv.lst_value = ft_lstsplit(tenv.value, ':');
-	ft_lstprint(tenv.lst_value, NULL);
 	return (tenv);
 }
 

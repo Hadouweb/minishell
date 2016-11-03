@@ -15,18 +15,25 @@ int		m_check_builtin(t_app *app, char *cmd)
 
 char 	*m_get_cmd_path(t_app *app, char *cmd)
 {
+	char 	*full_path;
 	char 	*path;
 	t_list	*l;
 
 	l = NULL;
 	if (app->path_node != NULL) {
 		l = ((t_env *) app->path_node->content)->lst_value;
-		//ft_lstprint(l, NULL);
+		ft_lstprint(l, NULL);
 	}
-	if (cmd)
-		;
-	path = NULL;
-	return (path);
+	while(l)
+	{
+		path = (char*)l->content;
+		full_path = ft_strjoin_free_s1(ft_strjoin(path, "/"), cmd);
+		if(access(full_path, R_OK | X_OK | F_OK) == 0)
+			return (full_path);
+		ft_strdel(&full_path);
+		l = l->next;
+	}
+	return (NULL);
 }
 
 char 	*m_get_cmd_arg(char *cmd)
