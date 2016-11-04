@@ -110,6 +110,7 @@ char	*m_format_init_param(char *str, int max)
 {
 	int		mode;
 	char	*new_str;
+	int 	last_char;
 
 	mode = 0;
 	if (str[0] == '"')
@@ -117,7 +118,10 @@ char	*m_format_init_param(char *str, int max)
 	if (str[0] == '\'')
 		mode = 2;
 	new_str = ft_strnew(max);
-	new_str[ft_strlen(new_str) - 1] = '\0';
+	last_char = ft_strlen(new_str) - 1;
+	if (last_char < 0)
+		last_char = 0;
+	new_str[last_char] = '\0';
 	return (m_format_param(str, new_str, max, mode));
 }
 

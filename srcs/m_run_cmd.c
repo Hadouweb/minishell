@@ -7,6 +7,7 @@ int		m_check_builtin(t_app *app, char *cmd)
 	ret = 0;
 	if (ft_strcmp(cmd, "exit") == 0 && (ret = 1))
 	{
+		ft_strdel(&cmd);
 		m_free_all(app);
 		exit(0);
 	}
@@ -65,13 +66,14 @@ void	m_exec_cmd(char *cmd_bin, char **cmd_arg, char **env)
 	pid_t 	pid;
 
 	pid = fork();
-	if (pid == 0)
+	if (pid > 0)
+		wait(&pid);
+	else if (pid == 0)
 	{
 		val = execve(cmd_bin, cmd_arg, env);
 		if (val == -1)
 			ft_putendl_fd("Error execve", 2);
-	} else if (pid > 0)
-		wait(&pid);
+	}
 }
 
 void	m_run_cmd(t_app *app, char *cmd)
@@ -84,12 +86,16 @@ void	m_run_cmd(t_app *app, char *cmd)
 	{
 		if (m_check_builtin(app, cmd) != 0)
 			return;
+
 		m_set_cmd(app, cmd);
 		cmd_bin = (char *) app->param->content;
 		path = m_get_cmd_path(app, cmd_bin);
 		cmd_arg = m_get_cmd_arg(app);
-		if (path != NULL)
+		if (path != NULL) {
 			m_exec_cmd(path, cmd_arg, app->env);
+			ft_strdel(&path);
+		}
+		ft_free_tab(cmd_arg);
 		m_free_param_lst(app);
 	}
 }
