@@ -1,15 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_free_memory.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/04 11:52:52 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/11/04 11:52:53 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 void	m_free_lst_envp_value(t_env *env)
 {
 	t_list	*tmp;
 	t_list	*l_value;
-	char 	*val;
+	char	*val;
 
-	tmp = NULL;
-	val = NULL;
 	l_value = env->lst_value;
-	while(l_value)
+	while (l_value)
 	{
 		val = (char*)l_value->content;
 		ft_strdel(&val);
@@ -26,7 +36,7 @@ void	m_free_lst_envp(t_app *app)
 	t_env	*env;
 
 	l = app->lst_env;
-	while(l)
+	while (l)
 	{
 		env = (t_env*)l->content;
 		ft_strdel(&env->key);
@@ -43,7 +53,7 @@ void	m_free_lst_envp(t_app *app)
 
 void	m_free_env_from_lst(t_app *app)
 {
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (app->env[i] != NULL)
@@ -55,7 +65,7 @@ void	m_free_env_from_lst(t_app *app)
 	app->env = NULL;
 }
 
-void 	m_free_param_lst(t_app *app)
+void	m_free_param_lst(t_app *app)
 {
 	t_list	*l;
 	t_list	*tmp;

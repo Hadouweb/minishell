@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_set_data.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/04 11:57:02 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/11/04 11:57:03 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 t_env	m_get_env_struct(char *env)
 {
 	t_env	tenv;
-	char 	**split;
+	char	**split;
 
 	split = ft_strsplit(env, '=');
 	tenv.key = ft_strdup(split[0]);
@@ -17,7 +29,7 @@ t_env	m_get_env_struct(char *env)
 
 void	m_set_envp(t_app *app, char **envp)
 {
-	int 	i;
+	int		i;
 	t_env	env;
 	t_list	*l;
 
@@ -35,15 +47,14 @@ void	m_set_envp(t_app *app, char **envp)
 			app->path_node = l;
 		l = l->next;
 	}
-	//ft_lstprint(app->lst_env, m_debug_content_env);
 }
 
 void	m_set_env_from_lst(t_app *app)
 {
-	int 	nb_env;
+	int		nb_env;
 	t_list	*l;
 	t_env	*env;
-	int 	i;
+	int		i;
 
 	i = 0;
 	l = app->lst_env;
