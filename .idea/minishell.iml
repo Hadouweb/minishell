@@ -7,15 +7,15 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/includes/libft.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/bit/ft_reversebit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/bit/ft_printbit.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putstr.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr_base.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar_fd.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putstr_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putstr_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr_fd.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr_base.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putstr.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memcmp.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memmove.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memchr.c" isTestSource="false" />
@@ -36,40 +36,40 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncat.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strjoin_free_s2.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcat.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strsplit.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_striteri.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strtrim.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_tolower.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlen_limit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strnstr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strjoin_free_s1.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strstr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_nblen.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_striteri.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strclr.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strchr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strmap.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strrchr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_itoa_base.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlen.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncmp.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strndup.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_striter.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_atoi.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcmp.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strsplit.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlen_limit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_itoa.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_ltoa.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strnew.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlcat.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncmp.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncpy.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strchr.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcpy_limit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcpy.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strdup.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_del_char.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strjoin.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_toupper.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strndup.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strsub.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strdel.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcpy_limit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strmapi.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcmp.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strnequ.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_stradd_char.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strequ.c" isTestSource="false" />
@@ -100,6 +100,7 @@
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_escaped_character.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/minishell" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Makefile" isTestSource="false" />

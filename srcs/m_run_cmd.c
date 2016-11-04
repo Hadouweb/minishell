@@ -49,31 +49,47 @@ char 	*m_get_cmd_path(t_app *app, char *cmd)
 	return (NULL);
 }
 
-char 	**m_get_cmd_arg(char *cmd)
+char 	**m_get_cmd_arg(t_app *app)
 {
-	char 	**arg;
+	t_list	*l;
+	char 	**cmd_arg;
 
-	if (cmd)
-		;
-	arg = NULL;
-	return (arg);
+	l = app->param;
+	cmd_arg = (char**)ft_lsttotab(l);
+	return (cmd_arg);
+}
+
+void	m_exec_cmd(char *cmd_bin, char **cmd_arg, char **env)
+{
+	int 	val;
+	pid_t 	pid;
+
+	pid = fork();
+	if (pid == 0)
+	{
+		val = execve(cmd_bin, cmd_arg, env);
+		if (val == -1)
+			ft_putendl_fd("Error execve", 2);
+	} else if (pid > 0)
+		wait(&pid);
 }
 
 void	m_run_cmd(t_app *app, char *cmd)
 {
-	int		val;
 	char 	*path;
-	char 	**arg;
+	char 	*cmd_bin;
+	char 	**cmd_arg;
 
-	if (m_check_builtin(app, cmd) != 0)
-		return;
-	m_set_cmd(app, cmd);
-	path = m_get_cmd_path(app, cmd);
-	//arg = m_get_cmd_arg(cmd);
-	if (path != NULL)
+	if (ft_strlen(cmd) > 0)
 	{
-		val = execve(path, arg, app->env);
-		if (val == -1)
-			ft_putendl_fd("Error execve", 2);
+		if (m_check_builtin(app, cmd) != 0)
+			return;
+		m_set_cmd(app, cmd);
+		cmd_bin = (char *) app->param->content;
+		path = m_get_cmd_path(app, cmd_bin);
+		cmd_arg = m_get_cmd_arg(app);
+		if (path != NULL)
+			m_exec_cmd(path, cmd_arg, app->env);
+		m_free_param_lst(app);
 	}
 }

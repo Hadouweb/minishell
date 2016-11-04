@@ -35,10 +35,11 @@ void	m_free_all(t_app *app);
 int		m_check_builtin(t_app *app, char *cmd);
 void	m_run_cmd(t_app *app, char *cmd);
 char 	*m_get_cmd_path(t_app *app, char *cmd);
-char 	**m_get_cmd_arg(char *cmd);
+char 	**m_get_cmd_arg(t_app *app);
 void	m_error(char *str, char *file);
 void	m_error_access(char *cmd, int code);
 void	m_set_cmd(t_app *app, char *cmd);
 void 	m_free_param_lst(t_app *app);
+void	m_exec_cmd(char *path, char **cmd_arg, char **env);
 
 #endif
