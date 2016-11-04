@@ -39,5 +39,6 @@ char 	**m_get_cmd_arg(char *cmd);
 void	m_error(char *str, char *file);
 void	m_error_access(char *cmd, int code);
 void	m_set_cmd(t_app *app, char *cmd);
+void 	m_free_param_lst(t_app *app);
 
 #endif

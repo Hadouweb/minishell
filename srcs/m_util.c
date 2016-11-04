@@ -15,9 +15,9 @@ int 	m_word_size_cmd(char *cmd)
 			return (i);
 		if ((cmd[i] == ' ' || cmd[i] == '\t') && token == 0 && token2 == 0)
 			return (i);
-		if (cmd[i] == '"' && !(cmd[i - 1] && cmd[i - 1] == '\\'))
+		if (cmd[i] == '"' && !(i - 1 > 0 && cmd[i - 1] && cmd[i - 1] == '\\'))
 			token++;
-		if (cmd[i] == '\'' && !(cmd[i - 1] && cmd[i - 1] == '\\'))
+		if (cmd[i] == '\'' && !(i - 1 > 0 && cmd[i - 1] && cmd[i - 1] == '\\'))
 			token2++;
 		i++;
 	}
@@ -97,7 +97,7 @@ char	*m_format_param(char *str, int max)
 	while(str[i] && i < max)
 	{
 		//printf("a [%c] %d\n", str[i], i);
-		if (str[i] == '\\' && (i + 1) < max) {
+		if (str[i] == '\\' && (i + 1) < max && mode != 2) {
 			if (mode == 0 && str[i + 1] != '\\')
 				i++;
 			else {
@@ -146,7 +146,7 @@ void	m_set_cmd(t_app *app, char *cmd)
 		i += inc;
 		if (word != NULL)
 		{
-			ft_lstpush_back(&app->param, word, ft_strlen(word));
+			ft_lstpush_back(&app->param, (void*)word, ft_strlen(word) + 1);
 			ft_strdel(&word);
 		}
 	}

@@ -4,32 +4,26 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/auteur" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/includes/minishell.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/includes/libft.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl_fd.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/bit/ft_reversebit.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/bit/ft_printbit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putstr.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putstr_fd.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr_fd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr_base.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putchar_fd.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/get_next_line.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memmove.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memset.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memcmp.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memmove.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memchr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memccpy.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memcpy.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memalloc.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_bzero.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memchr.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memset.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memcpy.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/mem/ft_memdel.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/is/ft_islower.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/is/ft_isalnum.c" isTestSource="false" />
@@ -38,14 +32,14 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/is/ft_isprint.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/is/ft_isascii.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/is/ft_isupper.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/bit/ft_reversebit.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/bit/ft_printbit.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/get_next_line.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncat.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strjoin_free_s2.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcat.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strsplit.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_striter.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strtrim.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_tolower.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlen_limit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strnstr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strjoin_free_s1.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strstr.c" isTestSource="false" />
@@ -56,39 +50,38 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strrchr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_itoa_base.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlen.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncmp.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strndup.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_striter.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_atoi.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcpy_limit.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlen_limit.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strdup.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_itoa.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_ltoa.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strnew.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strlcat.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncmp.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strequ.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncpy.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strchr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcpy.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strdup.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_del_char.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strjoin.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_toupper.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strndup.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strsub.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strdel.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strncpy.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcpy_limit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strmapi.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strcmp.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strtrim.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strnequ.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_stradd_char.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_itoa.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/str/ft_strequ.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/tab/ft_free_tab.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/tab/ft_tabjoin.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/tab/ft_tablen.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lsttotab.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/tab/ft_tabjoin.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstsize.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lsttotab.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstpush_back.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_pushbefore_node.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstnew.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstiter.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstpush_front.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstmap.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_pushback.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lst_pushafter_node.c" isTestSource="false" />
@@ -96,10 +89,17 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstdelone.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstsplit.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstdel.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstpush_back.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstpush_front.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_print.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstprint.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_new.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/minishell" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Makefile" isTestSource="false" />
@@ -125,7 +125,6 @@
           <root url="file:///System/Library/Frameworks/InstantMessage.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MapKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DirectoryService.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/InstallerPlugins.framework/Headers" />
           <root url="file:///System/Library/Frameworks/ForceFeedback.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreMediaIO.framework/Headers" />
@@ -161,7 +160,7 @@
           <root url="file:///System/Library/Frameworks/SystemConfiguration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/PrivateHeaders" />
-          <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/CoreAudioKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Cocoa.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenCL.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Python.framework/Headers" />
@@ -175,6 +174,7 @@
           <root url="file:///System/Library/Frameworks/CalendarStore.framework/Headers" />
           <root url="file:///System/Library/Frameworks/AVKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/FinderSync.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
           <root url="file:///System/Library/Frameworks/WebKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/QuickTime.framework/Headers" />
           <root url="file:///System/Library/Frameworks/VideoToolbox.framework/Headers" />
@@ -200,6 +200,7 @@
           <root url="file:///System/Library/Frameworks/OpenDirectory.framework/Frameworks/CFOpenDirectory.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudio.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DiskArbitration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreBluetooth.framework/Headers" />
@@ -238,7 +239,6 @@
           <root url="file:///System/Library/Frameworks/AudioUnit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/TWAIN.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOKit.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/CoreAudioKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOSurface.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Hypervisor.framework/Headers" />
           <root url="file:///System/Library/Frameworks/GLKit.framework/Headers" />
@@ -278,13 +278,12 @@
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
-          <root url="file:///Library/Developer/CommandLineTools/usr/include" />
-          <root url="file:///Library/Developer/CommandLineTools/usr/lib/clang/7.3.0/include" />
-          <root url="file:///Library/Frameworks/Mono.framework/Headers" />
-          <root url="file:///Library/Frameworks/iTunesLibrary.framework/Headers" />
-          <root url="file:///Library/Frameworks/CUDA.framework/Headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
+          <root url="file:///Library/Frameworks/Mono.framework/Headers" />
+          <root url="file:///Library/Frameworks/iTunesLibrary.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include" />
         </CLASSES>
         <SOURCES>
           <root url="file:///System/Library/Frameworks/AudioToolbox.framework/Headers" />
@@ -304,7 +303,6 @@
           <root url="file:///System/Library/Frameworks/InstantMessage.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MapKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DirectoryService.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/InstallerPlugins.framework/Headers" />
           <root url="file:///System/Library/Frameworks/ForceFeedback.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreMediaIO.framework/Headers" />
@@ -340,7 +338,7 @@
           <root url="file:///System/Library/Frameworks/SystemConfiguration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Tcl.framework/PrivateHeaders" />
-          <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/CoreAudioKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Cocoa.framework/Headers" />
           <root url="file:///System/Library/Frameworks/OpenCL.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Python.framework/Headers" />
@@ -354,6 +352,7 @@
           <root url="file:///System/Library/Frameworks/CalendarStore.framework/Headers" />
           <root url="file:///System/Library/Frameworks/AVKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/FinderSync.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/Contacts.framework/Headers" />
           <root url="file:///System/Library/Frameworks/WebKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/QuickTime.framework/Headers" />
           <root url="file:///System/Library/Frameworks/VideoToolbox.framework/Headers" />
@@ -379,6 +378,7 @@
           <root url="file:///System/Library/Frameworks/OpenDirectory.framework/Frameworks/CFOpenDirectory.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudio.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DiskArbitration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreBluetooth.framework/Headers" />
@@ -417,7 +417,6 @@
           <root url="file:///System/Library/Frameworks/AudioUnit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/TWAIN.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOKit.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/CoreAudioKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOSurface.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Hypervisor.framework/Headers" />
           <root url="file:///System/Library/Frameworks/GLKit.framework/Headers" />
@@ -457,13 +456,12 @@
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Frameworks/vImage.framework/Headers" />
           <root url="file:///System/Library/Frameworks/Accelerate.framework/Frameworks/vecLib.framework/Headers" />
-          <root url="file:///Library/Developer/CommandLineTools/usr/include" />
-          <root url="file:///Library/Developer/CommandLineTools/usr/lib/clang/7.3.0/include" />
-          <root url="file:///Library/Frameworks/Mono.framework/Headers" />
-          <root url="file:///Library/Frameworks/iTunesLibrary.framework/Headers" />
-          <root url="file:///Library/Frameworks/CUDA.framework/Headers" />
           <root url="file:///usr/include" />
           <root url="file:///usr/local/include" />
+          <root url="file:///Library/Frameworks/Mono.framework/Headers" />
+          <root url="file:///Library/Frameworks/iTunesLibrary.framework/Headers" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" />
+          <root url="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/8.0.0/include" />
         </SOURCES>
       </library>
     </orderEntry>

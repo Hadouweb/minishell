@@ -55,8 +55,25 @@ void	m_free_env_from_lst(t_app *app)
 	app->env = NULL;
 }
 
+void 	m_free_param_lst(t_app *app)
+{
+	t_list	*l;
+	t_list	*tmp;
+
+	l = app->param;
+	while (l)
+	{
+		ft_strdel((char**)&l->content);
+		tmp = l;
+		l = l->next;
+		free(tmp);
+	}
+	app->param = NULL;
+}
+
 void	m_free_all(t_app *app)
 {
+	m_free_param_lst(app);
 	m_free_lst_envp(app);
 	m_free_env_from_lst(app);
 }
