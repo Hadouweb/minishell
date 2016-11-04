@@ -20,6 +20,7 @@ SRC = 	$(SRCPATH)/main.c\
         $(SRCPATH)/m_run_cmd.c\
         $(SRCPATH)/m_util.c\
         $(SRCPATH)/m_escaped_character.c\
+        $(SRCPATH)/m_check_builtin.c\
 
 OBJ = $(SRC:.c=.o)
 

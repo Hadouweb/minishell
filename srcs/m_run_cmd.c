@@ -12,20 +12,6 @@
 
 #include "minishell.h"
 
-int		m_check_builtin(t_app *app, char *cmd)
-{
-	int		ret;
-
-	ret = 0;
-	if (ft_strcmp(cmd, "exit") == 0 && (ret = 1))
-	{
-		ft_strdel(&cmd);
-		m_free_all(app);
-		exit(0);
-	}
-	return (ret);
-}
-
 int		m_check_access(char *full_path)
 {
 	if (access(full_path, X_OK) == -1 && access(full_path, F_OK) == 0)

@@ -97,6 +97,7 @@
       <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_check_builtin.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
