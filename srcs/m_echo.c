@@ -93,6 +93,17 @@ void	m_check_flag(t_app *app)
 	app->echo_arg = l;
 }
 
+int 	m_set_octacl_special_char(char *str)
+{
+	char 	*str_o;
+	int 	ret;
+
+	str_o = ft_strndup(&str[1], 3);
+	ret = ft_atoi_base(str_o, 8);
+	ft_strdel(&str_o);
+	return (ret);
+}
+
 int		m_set_escaped_character(char *new_str, char *str)
 {
 	int		i;
@@ -118,6 +129,8 @@ int		m_set_escaped_character(char *new_str, char *str)
 			new_str[0] = '\t';
 		else if (str[1] == 'c' && (i = 1))
 			new_str[0] = '\0';
+		else if (str[1] == '0' && (i = 5))
+			new_str[0] = m_set_octacl_special_char(&str[1]);
 	}
 	return (i);
 }
@@ -187,6 +200,17 @@ char	*m_get_backslash_echo(char *str)
 	return (new_str);
 }
 
+char 	*m_del_special_join_echo_arg(char *str)
+{
+	char 	*new_str;
+	char 	*tmp;
+
+	tmp = ft_del_char(str, str[0]);
+	new_str = ft_strdup(tmp);
+	ft_strdel(&tmp);
+	return (new_str);
+}
+
 char	*m_join_echo_arg(t_app *app)
 {
 	t_list	*l;
@@ -200,7 +224,7 @@ char	*m_join_echo_arg(t_app *app)
 	{
 		str = (char *) l->content;
 		if (str && (str[0] == '"' || str[0] == '\''))
-			str = ft_strdup(ft_del_char((char *) l->content, str[0]));
+			str = m_del_special_join_echo_arg((char *) l->content);
 		else
 			str = ft_strdup((char *) l->content);
 		while (l && l->next)
@@ -208,10 +232,10 @@ char	*m_join_echo_arg(t_app *app)
 			str = ft_strjoin_free_s1(str, " ");
 			str2 = (char *) l->next->content;
 			if (str2 && (str2[0] == '"' || str2[0] == '\''))
-				str2 = ft_strdup(ft_del_char((char *) l->next->content, str2[0]));
+				str2 = m_del_special_join_echo_arg((char *) l->next->content);
 			else
 				str2 = ft_strdup((char *) l->next->content);
-			str = ft_strjoin_free_s1(str, str2);
+			str = ft_strjoin_free_s2(str, str2);
 			l = l->next;
 		}
 	}
@@ -233,6 +257,8 @@ void	m_run_echo(t_app *app, char *cmd)
 		//m_set_arg_echo(app->echo_arg);
 		str = m_get_backslash_echo(tmp);
 		ft_putstr(str);
+		ft_strdel(&str);
+		ft_strdel(&tmp);
 	}
 
 

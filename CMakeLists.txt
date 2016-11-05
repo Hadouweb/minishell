@@ -96,6 +96,7 @@ set(SOURCE_FILES
     libft/srcs/tab/ft_tablen.c
     libft/srcs/get_next_line.c
     libft/srcs/str/ft_nblen.c
+    libft/srcs/str/ft_atoi_base.c
     srcs/main.c
     srcs/m_set_data.c
     srcs/m_debug.c
