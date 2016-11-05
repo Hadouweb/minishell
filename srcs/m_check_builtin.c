@@ -11,6 +11,8 @@ char 	*m_get_builtin(char *cmd, int *i)
 	token = 0;
 	token2 = 0;
 	builtin = ft_strnew(ft_strlen(cmd));
+	while (cmd[*i] == ' ' || cmd[*i] == '\t')
+		(*i)++;
 	while (cmd[*i])
 	{
 		if (token != 1 && token2 != 1 && cmd[*i] == ' ')
@@ -43,12 +45,14 @@ int		m_check_builtin(t_app *app, char *cmd)
 	builtin = m_get_builtin(cmd, &i);
 	//param = ft_strdup((cmd - builtin));
 	//printf("[%s]\n", builtin);
+	if (builtin == NULL)
+		return (-1);
 	if (ft_strcmp(builtin, "exit") == 0 && (ret = 1))
 	{
 		m_free_all(app);
 		exit(0);
 	}
-	else if (ft_strcmp(builtin, "echo") == 0 && (ret = 1))
+	else if (ft_strcmp(builtin, "echo\0") == 0 && (ret = 1))
 	{
 		m_run_echo(app, cmd);
 	}

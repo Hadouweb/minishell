@@ -17,8 +17,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/types.h>
-# include <signal.h>
 # include "libft.h"
+# include <signal.h>
+
+# define ECHO_OPT_N 0x01
+# define ECHO_OPT_EMIN 0x02
 
 typedef	struct		s_env
 {
@@ -32,7 +35,9 @@ typedef struct		s_app
 	t_list			*lst_env;
 	t_list			*path_node;
 	t_list			*param;
+	t_list			*echo_arg;
 	char			**env;
+	unsigned char	echo_flag;
 }					t_app;
 
 void	m_set_envp(t_app *app, char **envp);
@@ -53,5 +58,7 @@ void	m_set_cmd(t_app *app, char *cmd);
 void	m_free_param_lst(t_app *app);
 void	m_exec_cmd(char *path, char **cmd_arg, char **env);
 void	m_run_echo(t_app *app, char *cmd);
+void	m_check_flag(t_app *app);
+void	m_free_char_lst(t_list **lst);
 
 #endif
