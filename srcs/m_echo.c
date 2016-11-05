@@ -54,8 +54,9 @@ void	m_split_cmd_echo(t_app *app, char *cmd)
 	{
 		sub_word = m_get_sub_word(&cmd);
 		len = ft_strlen(sub_word);
-		ft_lstpush_back(&app->param, (void*)sub_word, len);
+		ft_lstpush_back(&app->param, (void*)sub_word, len + 1);
 		cmd += len;
+		ft_strdel(&sub_word);
 	}
 }
 
@@ -94,12 +95,13 @@ void	m_set_arg_echo(t_list *lst)
 	char 	*tmp;
 
 	l = lst;
+	ft_lstprint(lst, NULL);
 	while (l)
 	{
 		str = (char*)l->content;
-		if (str[0] == '"' || str[0] == '\'')
+		if (str && (str[0] == '"' || str[0] == '\''))
 		{
-			tmp = str;
+			tmp = (char*)l->content;
 			l->content = (void *) ft_del_char(str, str[0]);
 			ft_strdel(&tmp);
 		}
