@@ -1,31 +1,29 @@
 #include "minishell.h"
 
-char 	*m_get_builtin(char *cmd)
+char 	*m_get_builtin(char *cmd, int *i)
 {
-	int 	i;
 	int 	j;
 	int 	token;
 	int 	token2;
 	char 	*builtin;
 
-	i = 0;
 	j = 0;
 	token = 0;
 	token2 = 0;
 	builtin = ft_strnew(ft_strlen(cmd));
-	while (cmd[i])
+	while (cmd[*i])
 	{
-		if (token == 2 || token2 == 2)
-			;
-		if (cmd[i] == '"')
+		if (token != 1 && token2 != 1 && cmd[*i] == ' ')
+			break ;
+		if (cmd[*i] == '"' && token2 != 1)
 			token++;
-		else if (cmd[i] == '\'')
+		else if (cmd[*i] == '\'' && token != 1)
 			token2++;
 		else {
-			builtin[j] = cmd[i];
+			builtin[j] = cmd[*i];
 			j++;
 		}
-		i++;
+		(*i)++;
 	}
 	builtin[j] = '\0';
 	if (builtin == NULL || ft_strlen(builtin) == 0)
@@ -37,23 +35,22 @@ int		m_check_builtin(t_app *app, char *cmd)
 {
 	int		ret;
 	char 	*builtin;
+	//char 	*param;
+	int 	i;
 
 	ret = 0;
-
-	builtin = m_get_builtin(cmd);
-
-	int i = 0;
-	while (builtin[i])
-	{
-		printf("|%c| ", builtin[i]);
-		i++;
-	}
-	printf("\n");
-	printf("[%s] %d\n", builtin, ft_strcmp(cmd, "exit"));
-	if (ft_strcmp(cmd, "exit") == 0 && (ret = 1))
+	i = 0;
+	builtin = m_get_builtin(cmd, &i);
+	//param = ft_strdup((cmd - builtin));
+	//printf("[%s]\n", builtin);
+	if (ft_strcmp(builtin, "exit") == 0 && (ret = 1))
 	{
 		m_free_all(app);
 		exit(0);
+	}
+	else if (ft_strcmp(builtin, "echo") == 0 && (ret = 1))
+	{
+		m_run_echo(app, cmd);
 	}
 	return (ret);
 }

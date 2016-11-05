@@ -52,5 +52,6 @@ void	m_error_access(char *cmd, int code);
 void	m_set_cmd(t_app *app, char *cmd);
 void	m_free_param_lst(t_app *app);
 void	m_exec_cmd(char *path, char **cmd_arg, char **env);
+void	m_run_echo(t_app *app, char *cmd);
 
 #endif
