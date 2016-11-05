@@ -81,6 +81,22 @@ void	m_free_param_lst(t_app *app)
 	app->param = NULL;
 }
 
+void	m_free_char_lst(t_list **lst)
+{
+	t_list	*l;
+	t_list	*tmp;
+
+	l = *lst;
+	while (l)
+	{
+		ft_strdel((char**)&l->content);
+		tmp = l;
+		l = l->next;
+		free(tmp);
+	}
+	*lst = NULL;
+}
+
 void	m_free_all(t_app *app)
 {
 	m_free_param_lst(app);
