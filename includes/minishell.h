@@ -21,7 +21,6 @@
 # include <signal.h>
 
 # define ECHO_OPT_N 0x01
-# define ECHO_OPT_EMIN 0x02
 
 typedef	struct		s_env
 {
@@ -60,5 +59,6 @@ void	m_exec_cmd(char *path, char **cmd_arg, char **env);
 void	m_run_echo(t_app *app, char *cmd);
 void	m_check_flag(t_app *app);
 void	m_free_char_lst(t_list **lst);
+int		m_set_escaped_character(char *new_str, char *str);
 
 #endif

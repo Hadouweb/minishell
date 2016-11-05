@@ -36,47 +36,6 @@ int		m_word_size_cmd(char *cmd)
 	return (i);
 }
 
-int		m_set_escaped_character2(char *new_str, char *str)
-{
-	int		i;
-
-	i = 0;
-	if (str[1] == 'n' && (i += 2))
-		new_str[0] = '\n';
-	else if (str[1] == 'v' && (i += 2))
-		new_str[0] = '\v';
-	else if (str[1] == 'a' && (i += 2))
-		new_str[0] = '\a';
-	else if (str[1] == 'b' && (i += 2))
-		new_str[0] = '\b';
-	else if (str[1] == 'r' && (i += 2))
-		new_str[0] = '\r';
-	else if (str[1] == 'f' && (i += 2))
-		new_str[0] = '\f';
-	else if (str[1] == 't' && (i += 2))
-		new_str[0] = '\t';
-	return (i);
-}
-
-int		m_set_escaped_character(char *new_str, char *str, int mode)
-{
-	int		i;
-
-	i = 0;
-	if (str[1])
-	{
-		if (str[1] == '\\' && (i += 2))
-			new_str[0] = '\\';
-		else if (str[1] == '"' && mode == 1 && ++i)
-			new_str[0] = '"';
-		else if (str[1] == '\'' && mode == 2 && ++i)
-			new_str[0] = '\'';
-		else
-			i += m_set_escaped_character2(new_str, str);
-	}
-	return (i);
-}
-
 char	*m_format_param(char *str, char *new_str, int max, int mode)
 {
 	int		i;
@@ -85,6 +44,7 @@ char	*m_format_param(char *str, char *new_str, int max, int mode)
 
 	i = 0;
 	j = 0;
+	k = 0;
 	while (str[i] && i < max)
 	{
 		if (str[i] == '\\' && (i + 1) < max && mode != 2)
@@ -93,7 +53,7 @@ char	*m_format_param(char *str, char *new_str, int max, int mode)
 				i++;
 			else
 			{
-				k = m_set_escaped_character(&new_str[j], &str[i], mode);
+				//k = m_set_escaped_character(&new_str[j], &str[i], mode);
 				j += (k > 0) ? k : 0;
 				i += k;
 			}

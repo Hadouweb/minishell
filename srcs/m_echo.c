@@ -65,21 +65,26 @@ void	m_check_flag(t_app *app)
 	t_list	*l;
 	int 	find;
 	char 	*str;
+	int 	i;
 
 	l = app->param;
 	l = l->next;
 	while (l)
 	{
 		find = 0;
+		i = 2;
 		str = (char*)l->content;
-		if (ft_strcmp(str, "-n") == 0 && ++find)
-			app->echo_flag |= ECHO_OPT_N;
-		if (ft_strcmp(str, "-e") == 0 && ++find)
-			app->echo_flag |= ECHO_OPT_EMIN;
-		if ((ft_strcmp(str, "-ne") == 0 || ft_strcmp(str, "-en") == 0) && ++find)
+		if (str && str[0])
 		{
-			app->echo_flag |= ECHO_OPT_N;
-			app->echo_flag |= ECHO_OPT_EMIN;
+			if (ft_strcmp(str, "-n") == 0 && ++find)
+				app->echo_flag |= ECHO_OPT_N;
+			else
+			{
+				while (str[i] && str[i] == 'n')
+					i++;
+				if (i > 2 && str[i] == '\0' && ++find)
+					app->echo_flag |= ECHO_OPT_N;
+			}
 		}
 		if (!find)
 			break;
@@ -88,52 +93,151 @@ void	m_check_flag(t_app *app)
 	app->echo_arg = l;
 }
 
-void	m_set_arg_echo(t_list *lst)
+int		m_set_escaped_character(char *new_str, char *str)
+{
+	int		i;
+
+	i = 0;
+	if (str[1])
+	{
+		if (str[1] == '\\' && (i = 2))
+			new_str[0] = '\\';
+		else if (str[1] == 'n' && (i = 2))
+			new_str[0] = '\n';
+		else if (str[1] == 'v' && (i = 2))
+			new_str[0] = '\v';
+		else if (str[1] == 'a' && (i = 2))
+			new_str[0] = '\a';
+		else if (str[1] == 'b' && (i = 2))
+			new_str[0] = '\b';
+		else if (str[1] == 'r' && (i = 2))
+			new_str[0] = '\r';
+		else if (str[1] == 'f' && (i = 2))
+			new_str[0] = '\f';
+		else if (str[1] == 't' && (i = 2))
+			new_str[0] = '\t';
+		else if (str[1] == 'c' && (i = 1))
+			new_str[0] = '\0';
+	}
+	return (i);
+}
+
+char 	*m_get_str_special_backslash(char *str)
+{
+	int 	i;
+	int 	j;
+	int 	k;
+	char 	*new_str;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	//printf("str: [%s]\n", str);
+	str = ft_del_char(str, str[0]);
+	//printf("str2: [%s]\n", str);
+	new_str = ft_strnew(ft_strlen(str));
+	while (str[i])
+	{
+		if (str[i] == '\\')
+		{
+			k = m_set_escaped_character(&new_str[j], &str[i]);
+			j += (k > 0) ? 1 : 0;
+			i += k;
+		}
+		if (str[i])
+		{
+			new_str[j] = str[i];
+			j++;
+			i++;
+		}
+		//printf("_ str: [%s](%d) | new_str: [%s](%d)\n", &str[i], i, new_str, j);
+	}
+	new_str[j] = '\0';
+	//printf("new_str: [%s]\n", new_str);
+	return (new_str);
+}
+
+char	*m_get_backslash_echo(char *str)
+{
+	int 	i;
+	int 	j;
+	int 	k;
+	char 	*new_str;
+
+	i = 0;
+	j = 0;
+	k = 0;
+	new_str = ft_strnew(ft_strlen(str));
+	while (str[i])
+	{
+		if (str[i] == '\\')
+		{
+			k = m_set_escaped_character(&new_str[j], &str[i]);
+			j += (k > 0) ? 1 : 0;
+			i += k;
+		}
+		if (str[i])
+		{
+			new_str[j] = str[i];
+			j++;
+			i++;
+		}
+	}
+	new_str[j] = '\0';
+	return (new_str);
+}
+
+char	*m_join_echo_arg(t_app *app)
 {
 	t_list	*l;
 	char 	*str;
-	char 	*tmp;
-
-	l = lst;
-	ft_lstprint(lst, NULL);
-	while (l)
-	{
-		str = (char*)l->content;
-		if (str && (str[0] == '"' || str[0] == '\''))
-		{
-			tmp = (char*)l->content;
-			l->content = (void *) ft_del_char(str, str[0]);
-			ft_strdel(&tmp);
-		}
-		l = l->next;
-	}
-}
-
-void	m_print_echo_arg(t_app *app)
-{
-	t_list	*l;
+	char 	*str2;
 
 	l = app->echo_arg;
-	while (l)
+	str = NULL;
+	str2 = NULL;
+	if (l)
 	{
-		ft_putstr((char*)l->content);
-		ft_putchar(' ');
-		l = l->next;
+		str = (char *) l->content;
+		if (str && (str[0] == '"' || str[0] == '\''))
+			str = ft_strdup(ft_del_char((char *) l->content, str[0]));
+		else
+			str = ft_strdup((char *) l->content);
+		while (l && l->next)
+		{
+			str = ft_strjoin_free_s1(str, " ");
+			str2 = (char *) l->next->content;
+			if (str2 && (str2[0] == '"' || str2[0] == '\''))
+				str2 = ft_strdup(ft_del_char((char *) l->next->content, str2[0]));
+			else
+				str2 = ft_strdup((char *) l->next->content);
+			str = ft_strjoin_free_s1(str, str2);
+			l = l->next;
+		}
 	}
-	if (!(app->echo_flag & ECHO_OPT_N))
-		ft_putchar('\n');
+	if (str && !(app->echo_flag & ECHO_OPT_N))
+		str = ft_strjoin_free_s1(str, "\n");
+	return (str);
 }
 
 void	m_run_echo(t_app *app, char *cmd)
 {
+	char 	*tmp;
+	char 	*str;
+
 	m_split_cmd_echo(app, cmd);
 	m_check_flag(app);
-
-	if (!(app->echo_flag & ECHO_OPT_EMIN))
+	tmp = m_join_echo_arg(app);
+	if (tmp)
 	{
-		m_set_arg_echo(app->echo_arg);
-		m_print_echo_arg(app);
+		//m_set_arg_echo(app->echo_arg);
+		str = m_get_backslash_echo(tmp);
+		ft_putstr(str);
 	}
+
+
+	//m_set_arg_echo(app->echo_arg);
+	//m_print_echo_arg(app);
 
 	m_free_char_lst(&app->param);
 	app->echo_arg = NULL;
