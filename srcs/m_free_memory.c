@@ -69,6 +69,7 @@ void	m_free_char_lst(t_list **lst)
 
 void	m_free_all(t_app *app)
 {
+	ft_free_tab(app->env);
 	m_free_char_lst(&app->param);
 	m_free_lst_envp(app);
 	m_free_char_lst(&app->lst_env);
