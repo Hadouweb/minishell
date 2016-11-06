@@ -17,13 +17,19 @@ t_env	m_get_env_struct(char *env)
 	t_env	tenv;
 	char	**split;
 
+	ft_bzero(&tenv, sizeof(t_env));
 	split = ft_strsplit(env, '=');
-	tenv.key = ft_strdup(split[0]);
-	tenv.value = ft_strdup(split[1]);
-	ft_free_tab(split);
-	tenv.lst_value = NULL;
-	if (ft_strcmp(tenv.key, "PATH") == 0)
-		tenv.lst_value = ft_lstsplit(tenv.value, ':');
+	if (split)
+	{
+		if (split[0])
+			tenv.key = ft_strdup(split[0]);
+		if (split[1])
+			tenv.value = ft_strdup(split[1]);
+		ft_free_tab(split);
+		tenv.lst_value = NULL;
+		if (tenv.key && ft_strcmp(tenv.key, "PATH") == 0)
+			tenv.lst_value = ft_lstsplit(tenv.value, ':');
+	}
 	return (tenv);
 }
 
@@ -65,7 +71,8 @@ void	m_set_env_from_lst(t_app *app)
 	{
 		env = (t_env*)l->content;
 		app->env[i] = ft_strjoin(env->key, "=");
-		app->env[i] = ft_strjoin_free_s1(app->env[i], env->value);
+		if (env->value)
+			app->env[i] = ft_strjoin_free_s1(app->env[i], env->value);
 		l = l->next;
 		i++;
 	}

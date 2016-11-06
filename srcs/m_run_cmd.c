@@ -84,7 +84,7 @@ void	m_run_cmd(t_app *app, char *cmd)
 	{
 		if (m_check_builtin(app, cmd) != 0)
 			return ;
-		m_set_cmd(app, cmd);
+		m_split_cmd_with_del_quote(app, cmd);
 		cmd_bin = (char *)app->param->content;
 		path = m_get_cmd_path(app, cmd_bin);
 		cmd_arg = m_get_cmd_arg(app);
@@ -94,6 +94,6 @@ void	m_run_cmd(t_app *app, char *cmd)
 			ft_strdel(&path);
 		}
 		ft_free_tab(cmd_arg);
-		m_free_param_lst(app);
+		m_free_char_lst(&app->param);
 	}
 }

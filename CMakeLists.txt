@@ -101,8 +101,7 @@ set(SOURCE_FILES
     srcs/m_set_data.c
     srcs/m_debug.c
     srcs/m_free_memory.c
-    srcs/m_escaped_character.c
-    srcs/m_check_builtin.c
+        srcs/m_check_builtin.c
     srcs/m_echo.c
     srcs/m_util.c
     srcs/m_error.c

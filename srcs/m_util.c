@@ -11,3 +11,27 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+void	m_split_cmd_with_del_quote(t_app *app, char *cmd)
+{
+	char	*sub_word;
+	char	*tmp;
+	int		len;
+
+	while (*cmd)
+	{
+		len = 0;
+		sub_word = m_get_sub_word(&cmd);
+		if (sub_word && (sub_word[0] == '"' || sub_word[0] == '\''))
+		{
+			tmp = sub_word;
+			sub_word = ft_del_char(sub_word, sub_word[0]);
+			len += 2;
+			ft_strdel(&tmp);
+		}
+		len += ft_strlen(sub_word);
+		ft_lstpush_back(&app->param, (void*)sub_word, len + 1);
+		cmd += len;
+		ft_strdel(&sub_word);
+	}
+}
