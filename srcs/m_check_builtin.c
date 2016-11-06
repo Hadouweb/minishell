@@ -28,8 +28,8 @@ char 	*m_get_builtin(char *cmd, int *i)
 		(*i)++;
 	}
 	builtin[j] = '\0';
-	if (builtin == NULL || ft_strlen(builtin) == 0)
-		return (NULL);
+	if (builtin != NULL && (ft_strlen(builtin) == 0))
+		ft_strdel(&builtin);
 	return (builtin);
 }
 
@@ -57,7 +57,7 @@ int		m_check_builtin(t_app *app, char *cmd)
 	else if (ft_strcmp(builtin, "echo\0") == 0 && (ret = 1))
 	{
 		m_run_echo(app, cmd);
-		ft_strdel(&builtin);
 	}
+	ft_strdel(&builtin);
 	return (ret);
 }

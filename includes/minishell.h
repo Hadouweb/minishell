@@ -57,7 +57,7 @@ void	m_set_cmd(t_app *app, char *cmd);
 void	m_free_param_lst(t_app *app);
 void	m_exec_cmd(char *path, char **cmd_arg, char **env);
 void	m_run_echo(t_app *app, char *cmd);
-void	m_check_flag(t_app *app);
+void	m_check_flag_echo(t_app *app);
 void	m_free_char_lst(t_list **lst);
 int		m_set_escaped_character(char *new_str, char *str);
 

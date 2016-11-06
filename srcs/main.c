@@ -52,7 +52,6 @@ int		main(int ac, char **av, char **envp)
 		m_run_cmd(&app, cmd);
 		ft_strdel(&cmd);
 	}
-	printf("NEVER END\n");
 	m_free_all(&app);
 	return (0);
 }
