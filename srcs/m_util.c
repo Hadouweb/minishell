@@ -35,3 +35,22 @@ void	m_split_cmd_with_del_quote(t_app *app, char *cmd)
 		ft_strdel(&sub_word);
 	}
 }
+
+char 	*m_get_value_env_by_key(t_app *app, char *key)
+{
+	t_list	*l;
+	t_env	*env;
+
+	l = app->lst_env;
+	if (key)
+	{
+		while(l)
+		{
+			env = (t_env*)l->content;
+			if (env && env->key && env->value && ft_strcmp(env->key, key) == 0)
+				return (env->value);
+			l = l->next;
+		}
+	}
+	return (NULL);
+}

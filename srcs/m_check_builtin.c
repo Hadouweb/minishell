@@ -71,6 +71,8 @@ int		m_check_builtin(t_app *app, char *cmd)
 		m_run_setenv(app, cmd);
 	else if (ft_strcmp(builtin, "unsetenv") == 0 && (ret = 1))
 		m_run_unsetenv(app, cmd);
+	else if (ft_strcmp(builtin, "cd") == 0 && (ret = 1))
+		m_run_cd(app, cmd);
 	ft_strdel(&builtin);
 	return (ret);
 }

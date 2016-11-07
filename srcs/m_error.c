@@ -40,6 +40,19 @@ void	m_error2(char *str)
 	ft_putstr_fd("\n", 2);
 }
 
+void	m_error3(char *str1, char *str2, char *str3)
+{
+	ft_putstr_fd("minishell: ", 2);
+	ft_putstr_fd(str1, 2);
+	if (str2 != NULL)
+	{
+		ft_putstr_fd(str2, 2);
+		if (str3 != NULL)
+			ft_putstr_fd(str3, 2);
+	}
+	ft_putstr_fd("\n", 2);
+}
+
 void	m_error_access(char *cmd, int code)
 {
 	if (code == -1)

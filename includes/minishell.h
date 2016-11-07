@@ -24,6 +24,9 @@
 
 # define ENV_OPT_I 0x01
 
+# define CD_OPT_L 0x01
+# define CD_OPT_P 0x02
+
 int		g_pid;
 
 typedef	struct		s_env
@@ -40,11 +43,13 @@ typedef struct		s_app
 	t_list			*param;
 	t_list			*echo_arg;
 	t_list			*env_arg;
+	t_list			*cd_arg;
 	t_list			*lst_cmd;
 	pid_t			pid;
 	char			**env;
 	unsigned char	echo_flag;
 	unsigned char	env_flag;
+	unsigned char	cd_flag;
 }					t_app;
 
 void	m_set_envp(t_app *app, char **envp);
@@ -76,5 +81,8 @@ char 	*m_get_key_param(t_app *app);
 char 	*m_get_value_param(t_app *app);
 void	m_error2(char *str);
 void	m_run_unsetenv(t_app *app, char *cmd);
+void	m_run_cd(t_app *app, char *cmd);
+char 	*m_get_value_env_by_key(t_app *app, char *key);
+void	m_error3(char *str1, char *str2, char *str3);
 
 #endif
