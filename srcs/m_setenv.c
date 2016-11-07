@@ -30,6 +30,13 @@ int 	m_replace_env(t_app *app)
 	l = app->lst_env;
 	key = m_get_key_param(app);
 	value = m_get_value_param(app);
+	if (ft_strchr(key, '=') || ft_strchr(value, '='))
+	{
+		m_error2("the character '=' is not allowed");
+		ft_strdel(&key);
+		ft_strdel(&value);
+		return (-1);
+	}
 	if (key)
 	{
 		while (l && ft_strcmp(((t_env*)l->content)->key, key) != 0)
@@ -56,7 +63,7 @@ char 	*m_get_key_param(t_app *app)
 	if (l && l->next)
 	{
 		if ((char*)l->next->content)
-			key = ft_strdup((char*)l->next->content);
+			key = ft_strdup((char *) l->next->content);
 	}
 	return (key);
 }
@@ -71,7 +78,7 @@ char 	*m_get_value_param(t_app *app)
 	if (l && l->next && l->next->next)
 	{
 		if ((char*)l->next->next->content)
-			value = ft_strdup((char*)l->next->next->content);
+			value = ft_strdup((char *) l->next->next->content);
 	}
 	return (value);
 }

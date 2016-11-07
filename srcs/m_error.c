@@ -33,6 +33,13 @@ void	m_error(char *str, char *file)
 	ft_putstr_fd("\n", 2);
 }
 
+void	m_error2(char *str)
+{
+	ft_putstr_fd("minishell: ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\n", 2);
+}
+
 void	m_error_access(char *cmd, int code)
 {
 	if (code == -1)
