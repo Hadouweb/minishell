@@ -50,8 +50,8 @@ int		m_check_builtin(t_app *app, char *cmd)
 	if (ft_strcmp(builtin, "exit") == 0 && (ret = 1))
 	{
 		m_free_all(app);
-		ft_strdel(&cmd);
 		ft_strdel(&builtin);
+		m_free_char_lst(&app->lst_cmd);
 		exit(0);
 	}
 	else if (ft_strcmp(builtin, "echo\0") == 0 && (ret = 1))

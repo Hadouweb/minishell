@@ -34,6 +34,24 @@ int		m_read_cmd(char **cmd)
 	return (ret);
 }
 
+void	m_separate_cmd(t_app *app, char **cmd)
+{
+	t_list	*l;
+
+	if (*cmd && ft_strlen(*cmd) > 0)
+	{
+		app->lst_cmd = ft_lstsplit(*cmd, ';');
+		ft_strdel(cmd);
+		l = app->lst_cmd;
+		while (l)
+		{
+			m_run_cmd(app, (char **) &l->content);
+			l = l->next;
+		}
+		m_free_char_lst(&app->lst_cmd);
+	}
+}
+
 int		main(int ac, char **av, char **envp)
 {
 	t_app	app;
@@ -49,8 +67,7 @@ int		main(int ac, char **av, char **envp)
 		cmd = ft_strdup("");
 		ft_putstr("$> ");
 		m_read_cmd(&cmd);
-		m_run_cmd(&app, &cmd);
-		ft_strdel(&cmd);
+		m_separate_cmd(&app, &cmd);
 	}
 	m_free_all(&app);
 	return (0);

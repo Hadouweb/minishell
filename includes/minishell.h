@@ -35,6 +35,7 @@ typedef struct		s_app
 	t_list			*path_node;
 	t_list			*param;
 	t_list			*echo_arg;
+	t_list			*lst_cmd;
 	char			**env;
 	unsigned char	echo_flag;
 }					t_app;

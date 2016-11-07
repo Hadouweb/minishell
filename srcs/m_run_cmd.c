@@ -83,7 +83,6 @@ void	m_set_escaped_character(char **cmd)
 
 	i = 0;
 	j = 0;
-	printf("cmd: [%s]\n", *cmd);
 	new_str = ft_strnew(ft_strlen(*cmd));
 	while (*cmd && (*cmd)[i])
 	{
@@ -98,7 +97,6 @@ void	m_set_escaped_character(char **cmd)
 	new_str[j] = '\0';
 	tmp = *cmd;
 	*cmd = new_str;
-	printf("cmd: [%s]\n", *cmd);
 	ft_strdel(&tmp);
 }
 
