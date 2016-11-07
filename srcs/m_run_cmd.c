@@ -74,18 +74,47 @@ void	m_exec_cmd(char *cmd_bin, char **cmd_arg, char **env)
 	}
 }
 
-void	m_run_cmd(t_app *app, char *cmd)
+void	m_set_escaped_character(char **cmd)
+{
+	int 	i;
+	int 	j;
+	char 	*new_str;
+	char 	*tmp;
+
+	i = 0;
+	j = 0;
+	printf("cmd: [%s]\n", *cmd);
+	new_str = ft_strnew(ft_strlen(*cmd));
+	while (*cmd && (*cmd)[i])
+	{
+		if ((*cmd)[i] == '\\')
+			i++;
+		if ((*cmd)[i] == '\0')
+			break;
+		new_str[j] = (*cmd)[i];
+		j++;
+		i++;
+	}
+	new_str[j] = '\0';
+	tmp = *cmd;
+	*cmd = new_str;
+	printf("cmd: [%s]\n", *cmd);
+	ft_strdel(&tmp);
+}
+
+void	m_run_cmd(t_app *app, char **cmd)
 {
 	char	*path;
 	char	*cmd_bin;
 	char	**cmd_arg;
 
-	if (ft_strlen(cmd) > 0)
+	if (ft_strlen(*cmd) > 0)
 	{
 		m_set_env_var(app, cmd);
-		if (m_check_builtin(app, cmd) != 0)
+		m_set_escaped_character(cmd);
+		if (m_check_builtin(app, *cmd) != 0)
 			return ;
-		m_split_cmd_with_del_quote(app, cmd);
+		m_split_cmd_with_del_quote(app, *cmd);
 		cmd_bin = (char *)app->param->content;
 		path = m_get_cmd_path(app, cmd_bin);
 		cmd_arg = m_get_cmd_arg(app);

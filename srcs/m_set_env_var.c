@@ -11,15 +11,14 @@ char 	*m_find_env_var(t_app *app, char *var)
 	{
 		if (ft_strcmp(((t_env*)l->content)->key, var) == 0)
 		{
-			value = ft_strdup(((t_env*)l->content)->value);
+			if (((t_env*)l->content)->value)
+				value = ft_strdup(((t_env*)l->content)->value);
 			break;
 		}
 		l = l->next;
 	}
 	if (value == NULL)
-		value = ft_strdup("");
-
-	ft_lstprint(app->lst_env, m_debug_content_env);
+		value = ft_strnew(1);
 	return (value);
 }
 
@@ -37,23 +36,18 @@ char	*m_set_var(t_app *app, char *cmd, char *str_1)
 		i++;
 	var = ft_strndup(cmd + 1, i - 1);
 	str_2 = ft_strsub(cmd, i, ft_strlen(&cmd[i]));
-
-	printf("str_1: [%s]\n", str_1);
-	printf("var: [%s]\n", var);
-	printf("str_2: [%s]\n", str_2);
-
 	value_var = m_find_env_var(app, var);
-
-
-	str_1 = ft_strjoin(str_1, value_var);
-	new_str = ft_strjoin(str_1, str_2);
+	new_str = ft_strjoin_free_s2(ft_strjoin(str_1, value_var), str_2);
+	ft_strdel(&value_var);
+	ft_strdel(&var);
 	return (new_str);
 }
 
-void	m_set_env_var(t_app *app, char *cmd)
+void	m_set_env_var(t_app *app, char **cmd)
 {
 	int 	i;
 	int 	loop;
+	char 	*tmp;
 	char 	*str_1;
 
 	i = 0;
@@ -61,13 +55,15 @@ void	m_set_env_var(t_app *app, char *cmd)
 	while (loop)
 	{
 		loop = 0;
-		while (cmd[i])
+		tmp = *cmd;
+		while ((*cmd)[i])
 		{
-			if (cmd[i] == '$')
+			if ((*cmd)[i] == '$' && i - 1 > 0 && (*cmd)[i - 1] != '\\')
 			{
-				str_1 = ft_strndup(cmd, i);
-				cmd = m_set_var(app, &cmd[i], str_1);
-				printf("cmd: [%s]\n", cmd);
+				str_1 = ft_strndup(*cmd, i);
+				*cmd = m_set_var(app, &(*cmd)[i], str_1);
+				ft_strdel(&tmp);
+				ft_strdel(&str_1);
 				loop = 1;
 				break;
 			}

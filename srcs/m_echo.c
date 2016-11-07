@@ -59,7 +59,7 @@ int		m_set_octacl_special_char(char *str)
 	return (ret);
 }
 
-int		m_set_escaped_character2(char *new_str, char *str)
+int		m_set_special_character2(char *new_str, char *str)
 {
 	int		i;
 
@@ -77,7 +77,7 @@ int		m_set_escaped_character2(char *new_str, char *str)
 	return (i);
 }
 
-int		m_set_escaped_character(char *new_str, char *str)
+int		m_set_special_character(char *new_str, char *str)
 {
 	int		i;
 
@@ -95,7 +95,7 @@ int		m_set_escaped_character(char *new_str, char *str)
 		else if (str[1] == 'b' && (i = 2))
 			new_str[0] = '\b';
 		else
-			i = m_set_escaped_character2(new_str, str);
+			i = m_set_special_character2(new_str, str);
 	}
 	return (i);
 }
@@ -114,7 +114,7 @@ char	*m_get_backslash_echo(char *str)
 	{
 		if (str[i] == '\\')
 		{
-			k = m_set_escaped_character(&new_str[j], &str[i]);
+			k = m_set_special_character(&new_str[j], &str[i]);
 			j += (k > 0) ? 1 : 0;
 			i += k;
 		}

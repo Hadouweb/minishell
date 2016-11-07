@@ -49,7 +49,7 @@ int		main(int ac, char **av, char **envp)
 		cmd = ft_strdup("");
 		ft_putstr("$> ");
 		m_read_cmd(&cmd);
-		m_run_cmd(&app, cmd);
+		m_run_cmd(&app, &cmd);
 		ft_strdel(&cmd);
 	}
 	m_free_all(&app);
