@@ -32,7 +32,7 @@ char	*m_set_var(t_app *app, char *cmd, char *str_1)
 
 	i = 1;
 	while (cmd[i] && cmd[i] != ' ' && cmd[i] != '$'
-		&& cmd[i] != '/' && cmd[i] != '.')
+		&& cmd[i] != '/' && cmd[i] != '.' && cmd[i] != '"')
 		i++;
 	var = ft_strndup(cmd + 1, i - 1);
 	str_2 = ft_strsub(cmd, i, ft_strlen(&cmd[i]));

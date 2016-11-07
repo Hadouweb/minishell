@@ -22,6 +22,9 @@
 
 # define ECHO_OPT_N 0x01
 
+extern int	g_signal;
+extern int	g_pid;
+
 typedef	struct		s_env
 {
 	char			*key;
@@ -36,6 +39,7 @@ typedef struct		s_app
 	t_list			*param;
 	t_list			*echo_arg;
 	t_list			*lst_cmd;
+	pid_t			pid;
 	char			**env;
 	unsigned char	echo_flag;
 }					t_app;
@@ -54,7 +58,7 @@ char	**m_get_cmd_arg(t_app *app);
 void	m_error(char *str, char *file);
 void	m_error_access(char *cmd, int code);
 void	m_set_cmd(t_app *app, char *cmd);
-void	m_exec_cmd(char *path, char **cmd_arg, char **env);
+void	m_exec_cmd(t_app *app, char *path, char **cmd_arg, char **env);
 void	m_run_echo(t_app *app, char *cmd);
 void	m_check_flag_echo(t_app *app);
 void	m_free_char_lst(t_list **lst);
@@ -63,5 +67,6 @@ void	m_split_cmd_echo(t_app *app, char *cmd);
 char	*m_get_sub_word(char **str);
 void	m_split_cmd_with_del_quote(t_app *app, char *cmd);
 void	m_set_env_var(t_app *app, char **cmd);
+void	m_run_env(t_app *app, char *cmd);
 
 #endif

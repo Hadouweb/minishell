@@ -58,46 +58,23 @@ char	**m_get_cmd_arg(t_app *app)
 	return (cmd_arg);
 }
 
-void	m_exec_cmd(char *cmd_bin, char **cmd_arg, char **env)
+void	m_exec_cmd(t_app *app, char *cmd_bin, char **cmd_arg, char **env)
 {
 	int		val;
-	pid_t	pid;
 
-	pid = fork();
-	if (pid > 0)
-		wait(&pid);
-	else if (pid == 0)
+	app->pid = fork();
+	g_pid = app->pid;
+	if (app->pid > 0)
+	{
+		wait(&app->pid);
+		g_pid = 0;
+	}
+	else if (app->pid == 0)
 	{
 		val = execve(cmd_bin, cmd_arg, env);
 		if (val == -1)
 			ft_putendl_fd("Error execve", 2);
 	}
-}
-
-void	m_set_escaped_character(char **cmd)
-{
-	int 	i;
-	int 	j;
-	char 	*new_str;
-	char 	*tmp;
-
-	i = 0;
-	j = 0;
-	new_str = ft_strnew(ft_strlen(*cmd));
-	while (*cmd && (*cmd)[i])
-	{
-		if ((*cmd)[i] == '\\')
-			i++;
-		if ((*cmd)[i] == '\0')
-			break;
-		new_str[j] = (*cmd)[i];
-		j++;
-		i++;
-	}
-	new_str[j] = '\0';
-	tmp = *cmd;
-	*cmd = new_str;
-	ft_strdel(&tmp);
 }
 
 void	m_run_cmd(t_app *app, char **cmd)
@@ -109,7 +86,6 @@ void	m_run_cmd(t_app *app, char **cmd)
 	if (ft_strlen(*cmd) > 0)
 	{
 		m_set_env_var(app, cmd);
-		m_set_escaped_character(cmd);
 		if (m_check_builtin(app, *cmd) != 0)
 			return ;
 		m_split_cmd_with_del_quote(app, *cmd);
@@ -118,7 +94,7 @@ void	m_run_cmd(t_app *app, char **cmd)
 		cmd_arg = m_get_cmd_arg(app);
 		if (path != NULL)
 		{
-			m_exec_cmd(path, cmd_arg, app->env);
+			m_exec_cmd(app, path, cmd_arg, app->env);
 			ft_strdel(&path);
 		}
 		ft_free_tab(cmd_arg);

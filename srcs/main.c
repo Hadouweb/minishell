@@ -12,6 +12,9 @@
 
 #include "minishell.h"
 
+int g_signal = 0;
+int g_pid = 0;
+
 int		m_read_cmd(char **cmd)
 {
 	int		ret;
@@ -41,7 +44,7 @@ void	m_separate_cmd(t_app *app, char **cmd)
 	if (*cmd && ft_strlen(*cmd) > 0)
 	{
 		app->lst_cmd = ft_lstsplit(*cmd, ';');
-		ft_strdel(cmd);
+		ft_strdel(&(*cmd));
 		l = app->lst_cmd;
 		while (l)
 		{
@@ -50,6 +53,15 @@ void	m_separate_cmd(t_app *app, char **cmd)
 		}
 		m_free_char_lst(&app->lst_cmd);
 	}
+}
+
+void	m_signal_handler(int val)
+{
+	g_signal = val;
+	if (g_pid == 0)
+		ft_putstr("\n$> ");
+	else
+		ft_putchar('\n');
 }
 
 int		main(int ac, char **av, char **envp)
@@ -62,6 +74,7 @@ int		main(int ac, char **av, char **envp)
 	ft_bzero(&app, sizeof(t_app));
 	m_set_envp(&app, envp);
 	m_set_env_from_lst(&app);
+	signal(SIGINT, m_signal_handler);
 	while (1)
 	{
 		cmd = ft_strdup("");

@@ -22,6 +22,7 @@ SRC = 	$(SRCPATH)/main.c\
         $(SRCPATH)/m_check_builtin.c\
         $(SRCPATH)/m_echo.c\
         $(SRCPATH)/m_set_env_var.c\
+        $(SRCPATH)/m_env.c\
 
 OBJ = $(SRC:.c=.o)
 
