@@ -82,6 +82,7 @@ void	m_run_cmd(t_app *app, char *cmd)
 
 	if (ft_strlen(cmd) > 0)
 	{
+		m_set_env_var(app, cmd);
 		if (m_check_builtin(app, cmd) != 0)
 			return ;
 		m_split_cmd_with_del_quote(app, cmd);
