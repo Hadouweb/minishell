@@ -72,5 +72,8 @@ char	*m_get_sub_word(char **str);
 void	m_split_cmd_with_del_quote(t_app *app, char *cmd);
 void	m_set_env_var(t_app *app, char **cmd);
 void	m_run_env(t_app *app, char *cmd);
+void	m_run_setenv(t_app *app, char *cmd);
+char 	*m_get_key_param(t_app *app);
+char 	*m_get_value_param(t_app *app);
 
 #endif
