@@ -12,7 +12,6 @@
 
 #include "minishell.h"
 
-int g_signal = 0;
 int g_pid = 0;
 
 int		m_read_cmd(char **cmd)
@@ -59,7 +58,8 @@ void	m_separate_cmd(t_app *app, char **cmd)
 
 void	m_signal_handler(int val)
 {
-	g_signal = val;
+	if (val)
+		;
 	if (g_pid == 0)
 		ft_putstr("\n$> ");
 	else

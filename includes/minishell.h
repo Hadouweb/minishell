@@ -24,8 +24,7 @@
 
 # define ENV_OPT_I 0x01
 
-extern int	g_signal;
-extern int	g_pid;
+int		g_pid;
 
 typedef	struct		s_env
 {
