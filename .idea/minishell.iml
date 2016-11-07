@@ -3,19 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/auteur" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Makefile" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/includes/minishell.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_echo.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_env.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_check_builtin.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_setenv.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_env_var.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/includes/libft.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putnbr.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/print/ft_putendl_fd.c" isTestSource="false" />
@@ -108,7 +97,19 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_new.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/minishell" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Makefile" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_echo.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_env.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_check_builtin.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_unsetenv.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_data.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_setenv.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_env_var.c" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">

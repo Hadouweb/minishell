@@ -76,5 +76,6 @@ void	m_run_setenv(t_app *app, char *cmd);
 char 	*m_get_key_param(t_app *app);
 char 	*m_get_value_param(t_app *app);
 void	m_error2(char *str);
+void	m_run_unsetenv(t_app *app, char *cmd);
 
 #endif
