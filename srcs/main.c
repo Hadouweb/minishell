@@ -48,6 +48,8 @@ void	m_separate_cmd(t_app *app, char **cmd)
 		l = app->lst_cmd;
 		while (l)
 		{
+			if (app->env == NULL)
+				m_set_env_from_lst(app);
 			m_run_cmd(app, (char **) &l->content);
 			l = l->next;
 		}
@@ -73,7 +75,6 @@ int		main(int ac, char **av, char **envp)
 		;
 	ft_bzero(&app, sizeof(t_app));
 	m_set_envp(&app, envp);
-	m_set_env_from_lst(&app);
 	signal(SIGINT, m_signal_handler);
 	while (1)
 	{

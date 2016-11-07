@@ -22,6 +22,8 @@
 
 # define ECHO_OPT_N 0x01
 
+# define ENV_OPT_I 0x01
+
 extern int	g_signal;
 extern int	g_pid;
 
@@ -38,10 +40,12 @@ typedef struct		s_app
 	t_list			*path_node;
 	t_list			*param;
 	t_list			*echo_arg;
+	t_list			*env_arg;
 	t_list			*lst_cmd;
 	pid_t			pid;
 	char			**env;
 	unsigned char	echo_flag;
+	unsigned char	env_flag;
 }					t_app;
 
 void	m_set_envp(t_app *app, char **envp);
