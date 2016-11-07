@@ -6,6 +6,9 @@ void	m_print_env(t_app *app)
 	char 	**env;
 
 	i = 0;
+	ft_free_tab(app->env);
+	app->env = NULL;
+	m_set_env_from_lst(app);
 	env = app->env;
 	while (env && env[i])
 	{

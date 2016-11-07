@@ -84,5 +84,9 @@ void	m_run_unsetenv(t_app *app, char *cmd);
 void	m_run_cd(t_app *app, char *cmd);
 char 	*m_get_value_env_by_key(t_app *app, char *key);
 void	m_error3(char *str1, char *str2, char *str3);
+int		m_check_access_cd(char *path);
+void	m_error_cd(int error, char *path);
+void	m_cd_home(t_app *app);
+void	m_set_env_value_by_key(t_app *app, char *key, char *value);
 
 #endif
