@@ -111,6 +111,7 @@ set(SOURCE_FILES
     srcs/m_unsetenv.c
     srcs/m_env.c
     srcs/m_cd.c
+    srcs/m_util_cd.c
     auteur
     Makefile
     minishell)

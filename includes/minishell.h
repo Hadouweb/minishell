@@ -93,5 +93,7 @@ void	m_set_shlvl(t_app *app);
 t_env	m_get_env_struct(char *env);
 t_env	m_copy_node_env(t_list *n);
 void	m_set_path_node(t_app *app);
+void	m_check_path(t_app *app, char *path_cmd);
+void	m_run_chdir(t_app *app, char *path);
 
 #endif
