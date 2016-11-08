@@ -69,7 +69,6 @@ void	m_add_env_by_key(t_list **lst, char *key, char *value)
 	t_env	env;
 
 	ft_bzero(&env, sizeof(t_env));
-	printf("key [%s] value [%s]\n", key, value);
 	if (key)
 	{
 		env.key = ft_strdup(key);
@@ -77,14 +76,12 @@ void	m_add_env_by_key(t_list **lst, char *key, char *value)
 			env.value = ft_strdup(value);
 		else
 			env.value = ft_strdup("");
-		printf("env.key [%s] env.value [%s]\n", env.key, env.value);
 		ft_lstpush_back(lst, (void*)&env, sizeof(t_env));
 	}
 }
 
 void	m_set_env_value_by_key(t_list **lst, char *key, char *value)
 {
-	printf("key [%s] value [%s]\n", key, value);
 	if (m_replace_env_by_key(lst, key, value) == 0)
 		m_add_env_by_key(lst, key, value);
 }

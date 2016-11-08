@@ -55,7 +55,7 @@ typedef struct		s_app
 
 void	m_set_envp(t_app *app, char **envp);
 void	m_debug_content_env(void *content);
-void	m_free_lst_envp(t_app *app);
+void	m_free_lst_envp(t_list **lst);
 void	m_set_env_from_lst(t_app *app, t_list **lst);
 void	m_debug_env(char **env);
 void	m_error_malloc(char *str);
@@ -90,5 +90,7 @@ void	m_error_cd(int error, char *path);
 void	m_cd_home(t_app *app);
 void	m_set_env_value_by_key(t_list **lst, char *key, char *value);
 void	m_set_shlvl(t_app *app);
+t_env	m_get_env_struct(char *env);
+t_env	m_copy_node_env(t_list *n);
 
 #endif

@@ -29,13 +29,13 @@ void	m_free_lst_envp_value(t_env *env)
 	}
 }
 
-void	m_free_lst_envp(t_app *app)
+void	m_free_lst_envp(t_list **lst)
 {
 	t_list	*l;
 	t_list	*tmp;
 	t_env	*env;
 
-	l = app->lst_env;
+	l = *lst;
 	while (l)
 	{
 		env = (t_env*)l->content;
@@ -48,7 +48,7 @@ void	m_free_lst_envp(t_app *app)
 		free(tmp);
 		free(env);
 	}
-	app->lst_env = NULL;
+	*lst = NULL;
 }
 
 void	m_free_char_lst(t_list **lst)
@@ -71,6 +71,5 @@ void	m_free_all(t_app *app)
 {
 	ft_free_tab(app->env);
 	m_free_char_lst(&app->param);
-	m_free_lst_envp(app);
-	m_free_char_lst(&app->lst_env);
+	m_free_lst_envp(&app->lst_env);
 }

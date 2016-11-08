@@ -69,12 +69,29 @@ void	m_run_cmd_with_special_env(t_app *app)
 	}
 }
 
+void	m_copy_lst(t_list **lst_src, t_list **lst_dst)
+{
+	t_list	*l;
+	t_env	env;
+
+	l = *lst_src;
+	while (l)
+	{
+		env = m_copy_node_env(l);
+		ft_lstpush_back(lst_dst, &env, sizeof(t_env));
+		l = l->next;
+	}
+}
+
 void	m_set_new_env(t_app *app)
 {
 	t_list	*l;
 	char 	**split;
 
 	l = app->env_arg;
+	//ft_lstprint(app->lst_env_tmp, m_debug_content_env);
+	//printf("\n");
+	//ft_lstprint(app->lst_env, m_debug_content_env);
 	if (l)
 	{
 		if (ft_strrchr((char*)l->content, '=') != NULL)
@@ -82,15 +99,16 @@ void	m_set_new_env(t_app *app)
 			split = ft_strsplit((char*)l->content, '=');
 			if (split && split[0])
 			{
+				if (app->env_flag == 0)
+					m_copy_lst(&app->lst_env, &app->lst_env_tmp);
 				m_set_env_value_by_key(&app->lst_env_tmp, split[0], split[1]);
 				ft_free_tab(split);
 			}
 		}
 		app->env_arg = l->next;
 	}
-	ft_lstprint(app->lst_env_tmp, m_debug_content_env);
-	printf("\n");
-	ft_lstprint(app->env_arg, NULL);
+	if (ft_lstsize(app->env_arg) == 0)
+		m_print_env(app, &app->lst_env_tmp);
 }
 
 void	m_run_env(t_app *app, char *cmd)
@@ -101,16 +119,17 @@ void	m_run_env(t_app *app, char *cmd)
 	{
 		m_split_cmd_with_del_quote(app, cmd);
 		m_check_flag_env(app);
-		ft_printbit(app->env_flag);
-		if (app->env_flag & ENV_OPT_I)
+		ft_free_tab(app->env);
+		app->env = NULL;
+		m_set_new_env(app);
+		if (ft_lstsize(app->lst_env_tmp) > 0)
 		{
-			ft_printbit(app->env_flag);
-			printf("____________ here 1\n");
-			ft_free_tab(app->env);
-			app->env = NULL;
-			m_set_new_env(app);
-			m_run_cmd_with_special_env(app);
-		}
+			m_set_env_from_lst(app, &app->lst_env_tmp);
+			m_free_lst_envp(&app->lst_env_tmp);
+		} else
+			m_set_env_from_lst(app, &app->lst_env);
+		m_run_cmd_with_special_env(app);
 	}
+	m_free_char_lst(&app->param);
 	app->env_flag = 0;
 }
