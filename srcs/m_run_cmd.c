@@ -33,6 +33,8 @@ char	*m_get_cmd_path(t_app *app, char *cmd)
 	check_access = -100;
 	if (app->path_node != NULL)
 		l = ((t_env *)app->path_node->content)->lst_value;
+	if (cmd && (cmd[0] == '/' || cmd[0] == '.'))
+		return (ft_strdup(cmd));
 	while (l)
 	{
 		path = (char*)l->content;
@@ -67,6 +69,7 @@ void	m_exec_cmd(t_app *app, char *cmd_bin, char **cmd_arg, char **env)
 	if (app->pid > 0)
 	{
 		wait(&app->pid);
+		m_set_env_value_by_key(&app->lst_env, "_", cmd_bin);
 		g_pid = 0;
 	}
 	else if (app->pid == 0)

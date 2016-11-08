@@ -37,13 +37,13 @@ void	m_split_cmd_with_del_quote(t_app *app, char *cmd)
 }
 
 
-int 	m_replace_env_by_key(t_app *app, char *key, char *value)
+int 	m_replace_env_by_key(t_list **lst, char *key, char *value)
 {
 	t_list	*l;
 	char 	*tmp;
 	t_env	*env;
 
-	l = app->lst_env;
+	l = *lst;
 	if (key && value)
 	{
 		while (l && ft_strcmp(((t_env*)l->content)->key, key) != 0)
@@ -64,23 +64,29 @@ int 	m_replace_env_by_key(t_app *app, char *key, char *value)
 	return (0);
 }
 
-void	m_add_env_by_key(t_app *app, char *key, char *value)
+void	m_add_env_by_key(t_list **lst, char *key, char *value)
 {
 	t_env	env;
 
 	ft_bzero(&env, sizeof(t_env));
-	if (key && value)
+	printf("key [%s] value [%s]\n", key, value);
+	if (key)
 	{
 		env.key = ft_strdup(key);
-		env.value = ft_strdup(value);
-		ft_lstpush_back(&app->lst_env, (void*)&env, sizeof(t_env));
+		if (value)
+			env.value = ft_strdup(value);
+		else
+			env.value = ft_strdup("");
+		printf("env.key [%s] env.value [%s]\n", env.key, env.value);
+		ft_lstpush_back(lst, (void*)&env, sizeof(t_env));
 	}
 }
 
-void	m_set_env_value_by_key(t_app *app, char *key, char *value)
+void	m_set_env_value_by_key(t_list **lst, char *key, char *value)
 {
-	if (m_replace_env_by_key(app, key, value) == 0)
-		m_add_env_by_key(app, key, value);
+	printf("key [%s] value [%s]\n", key, value);
+	if (m_replace_env_by_key(lst, key, value) == 0)
+		m_add_env_by_key(lst, key, value);
 }
 
 char 	*m_get_value_env_by_key(t_app *app, char *key)
@@ -100,4 +106,22 @@ char 	*m_get_value_env_by_key(t_app *app, char *key)
 		}
 	}
 	return (NULL);
+}
+
+void	m_set_shlvl(t_app *app)
+{
+	char 	*value;
+	char 	*new_value;
+	int 	shlvl;
+
+	shlvl = 1;
+	value = m_get_value_env_by_key(app, "SHLVL");
+	if (value)
+	{
+		shlvl = ft_atoi(value);
+		shlvl++;
+	}
+	new_value = ft_itoa(shlvl);
+	m_set_env_value_by_key(&app->lst_env, "SHLVL", new_value);
+	ft_strdel(&new_value);
 }

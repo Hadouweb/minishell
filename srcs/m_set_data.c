@@ -55,7 +55,7 @@ void	m_set_envp(t_app *app, char **envp)
 	}
 }
 
-void	m_set_env_from_lst(t_app *app)
+void	m_set_env_from_lst(t_app *app, t_list **lst)
 {
 	int		nb_env;
 	t_list	*l;
@@ -63,7 +63,7 @@ void	m_set_env_from_lst(t_app *app)
 	int		i;
 
 	i = 0;
-	l = app->lst_env;
+	l = *lst; //app->lst_env;
 	nb_env = ft_lstsize(l);
 	if ((app->env = (char**)ft_memalloc((nb_env + 1) * sizeof(char*))) == NULL)
 		m_error_malloc("m_set_env_from_lst");

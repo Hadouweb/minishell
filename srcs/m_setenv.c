@@ -96,7 +96,7 @@ void	m_run_setenv(t_app *app, char *cmd)
 			m_add_env(app);
 		ft_free_tab(app->env);
 		app->env = NULL;
-		m_set_env_from_lst(app);
+		m_set_env_from_lst(app, &app->lst_env);
 	}
 	m_free_char_lst(&app->param);
 }
