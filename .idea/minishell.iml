@@ -108,8 +108,9 @@
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_setenv.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_run_cmd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_env.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util2.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_util.c" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/srcs/m_debug.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_echo.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/minishell" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />

@@ -14,11 +14,11 @@ LIBNAME = $(LIBFTPATH)/libft.a
 
 SRC = 	$(SRCPATH)/main.c\
         $(SRCPATH)/m_set_data.c\
-        $(SRCPATH)/m_debug.c\
         $(SRCPATH)/m_free_memory.c\
         $(SRCPATH)/m_error.c\
         $(SRCPATH)/m_run_cmd.c\
         $(SRCPATH)/m_util.c\
+        $(SRCPATH)/m_util2.c\
         $(SRCPATH)/m_check_builtin.c\
         $(SRCPATH)/m_echo.c\
         $(SRCPATH)/m_set_env_var.c\

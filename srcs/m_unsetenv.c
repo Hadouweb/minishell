@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_unsetenv.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/08 23:19:56 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/11/08 23:19:57 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 t_env	m_copy_node_env(t_list *n)
@@ -17,7 +29,7 @@ t_env	m_copy_node_env(t_list *n)
 		l = ((t_env*)n->content)->lst_value;
 		while (l)
 		{
-			ft_lstpush_back(&lst_value, (char *) l->content, l->content_size);
+			ft_lstpush_back(&lst_value, (char *)l->content, l->content_size);
 			l = l->next;
 		}
 		env.lst_value = lst_value;

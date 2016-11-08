@@ -36,11 +36,10 @@ void	m_split_cmd_with_del_quote(t_app *app, char *cmd)
 	}
 }
 
-
-int 	m_replace_env_by_key(t_list **lst, char *key, char *value)
+int		m_replace_env_by_key(t_list **lst, char *key, char *value)
 {
 	t_list	*l;
-	char 	*tmp;
+	char	*tmp;
 	t_env	*env;
 
 	l = *lst;
@@ -50,7 +49,7 @@ int 	m_replace_env_by_key(t_list **lst, char *key, char *value)
 		{
 			env = (t_env*)l->content;
 			if (ft_strcmp(env->key, key) == 0)
-				break;
+				break ;
 			l = l->next;
 		}
 		if (l && value)
@@ -86,7 +85,7 @@ void	m_set_env_value_by_key(t_list **lst, char *key, char *value)
 		m_add_env_by_key(lst, key, value);
 }
 
-char 	*m_get_value_env_by_key(t_app *app, char *key)
+char	*m_get_value_env_by_key(t_app *app, char *key)
 {
 	t_list	*l;
 	t_env	*env;
@@ -94,7 +93,7 @@ char 	*m_get_value_env_by_key(t_app *app, char *key)
 	l = app->lst_env;
 	if (key)
 	{
-		while(l)
+		while (l)
 		{
 			env = (t_env*)l->content;
 			if (env && env->key && env->value && ft_strcmp(env->key, key) == 0)
@@ -103,51 +102,4 @@ char 	*m_get_value_env_by_key(t_app *app, char *key)
 		}
 	}
 	return (NULL);
-}
-
-void	m_set_shlvl(t_app *app)
-{
-	char 	*value;
-	char 	*new_value;
-	int 	shlvl;
-
-	shlvl = 1;
-	value = m_get_value_env_by_key(app, "SHLVL");
-	if (value)
-	{
-		shlvl = ft_atoi(value);
-		shlvl++;
-	}
-	new_value = ft_itoa(shlvl);
-	m_set_env_value_by_key(&app->lst_env, "SHLVL", new_value);
-	ft_strdel(&new_value);
-}
-
-void	m_copy_lst(t_list **lst_src, t_list **lst_dst)
-{
-	t_list	*l;
-	t_env	env;
-
-	l = *lst_src;
-	while (l)
-	{
-		env = m_copy_node_env(l);
-		ft_lstpush_back(lst_dst, &env, sizeof(t_env));
-		l = l->next;
-	}
-}
-
-int		m_secure_egal_char(char *key, char *value)
-{
-	int		ret;
-
-	ret = 0;
-	if (ft_strchr(key, '=') || ft_strchr(value, '='))
-	{
-		m_error2("the character '=' is not allowed");
-		ft_strdel(&key);
-		ft_strdel(&value);
-		ret = -1;
-	}
-	return (ret);
 }

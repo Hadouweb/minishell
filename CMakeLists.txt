@@ -99,12 +99,13 @@ set(SOURCE_FILES
     libft/srcs/str/ft_atoi_base.c
     srcs/main.c
     srcs/m_set_data.c
-    srcs/m_debug.c
+        srcs/m_debug.txt
     srcs/m_free_memory.c
     srcs/m_check_builtin.c
     srcs/m_echo.c
     srcs/m_set_env_var.c
     srcs/m_util.c
+    srcs/m_util2.c
     srcs/m_error.c
     srcs/m_run_cmd.c
     srcs/m_setenv.c

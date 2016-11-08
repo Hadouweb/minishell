@@ -49,7 +49,7 @@ void	m_separate_cmd(t_app *app, char **cmd)
 		{
 			if (app->env == NULL)
 				m_set_env_from_lst(app, &app->lst_env);
-			m_run_cmd(app, (char **) &l->content);
+			m_run_cmd(app, (char **)&l->content);
 			l = l->next;
 		}
 		m_free_char_lst(&app->lst_cmd);
