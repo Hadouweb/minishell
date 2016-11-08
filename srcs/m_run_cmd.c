@@ -31,6 +31,7 @@ char	*m_get_cmd_path(t_app *app, char *cmd)
 
 	l = NULL;
 	check_access = -100;
+	m_set_path_node(app);
 	if (app->path_node != NULL)
 		l = ((t_env *)app->path_node->content)->lst_value;
 	if (cmd && (cmd[0] == '/' || cmd[0] == '.'))

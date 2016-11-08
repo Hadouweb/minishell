@@ -92,5 +92,6 @@ void	m_set_env_value_by_key(t_list **lst, char *key, char *value);
 void	m_set_shlvl(t_app *app);
 t_env	m_get_env_struct(char *env);
 t_env	m_copy_node_env(t_list *n);
+void	m_set_path_node(t_app *app);
 
 #endif

@@ -37,7 +37,6 @@ void	m_set_envp(t_app *app, char **envp)
 {
 	int		i;
 	t_env	env;
-	t_list	*l;
 
 	i = 0;
 	while (envp[i] != NULL)
@@ -46,6 +45,13 @@ void	m_set_envp(t_app *app, char **envp)
 		ft_lstpush_back(&app->lst_env, (void*)&env, sizeof(t_env));
 		i++;
 	}
+	m_set_path_node(app);
+}
+
+void	m_set_path_node(t_app *app)
+{
+	t_list	*l;
+
 	l = app->lst_env;
 	while (l)
 	{
