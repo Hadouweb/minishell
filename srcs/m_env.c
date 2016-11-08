@@ -87,26 +87,28 @@ void	m_set_new_env(t_app *app)
 {
 	t_list	*l;
 	char 	**split;
+	int 	find;
 
 	l = app->env_arg;
-	//ft_lstprint(app->lst_env_tmp, m_debug_content_env);
-	//printf("\n");
-	//ft_lstprint(app->lst_env, m_debug_content_env);
-	if (l)
+	find = 1;
+	if (app->env_flag == 0)
+		m_copy_lst(&app->lst_env, &app->lst_env_tmp);
+	while (l && find)
 	{
+		find = 0;
 		if (ft_strrchr((char*)l->content, '=') != NULL)
 		{
+			find =1;
 			split = ft_strsplit((char*)l->content, '=');
 			if (split && split[0])
 			{
-				if (app->env_flag == 0)
-					m_copy_lst(&app->lst_env, &app->lst_env_tmp);
 				m_set_env_value_by_key(&app->lst_env_tmp, split[0], split[1]);
 				ft_free_tab(split);
 			}
 		}
-		app->env_arg = l->next;
+		l = l->next;
 	}
+	app->env_arg = l;
 	if (ft_lstsize(app->env_arg) == 0)
 		m_print_env(app, &app->lst_env_tmp);
 }
