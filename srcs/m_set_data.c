@@ -69,7 +69,7 @@ void	m_set_env_from_lst(t_app *app, t_list **lst)
 	int		i;
 
 	i = 0;
-	l = *lst; //app->lst_env;
+	l = *lst;
 	nb_env = ft_lstsize(l);
 	ft_free_tab(app->env);
 	app->env = NULL;

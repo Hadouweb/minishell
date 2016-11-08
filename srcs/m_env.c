@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_env.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/08 22:34:24 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/11/08 22:34:26 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
 void	m_print_env(t_app *app, t_list **lst)
 {
-	int 	i;
-	char 	**env;
+	int		i;
+	char	**env;
 
 	i = 0;
 	m_set_env_from_lst(app, lst);
@@ -45,8 +57,8 @@ void	m_check_flag_env(t_app *app)
 void	m_run_cmd_with_special_env(t_app *app)
 {
 	t_list	*l;
-	char 	*str2;
-	char 	*cmd;
+	char	*str2;
+	char	*cmd;
 
 	l = app->env_arg;
 	if (l)
@@ -67,28 +79,13 @@ void	m_run_cmd_with_special_env(t_app *app)
 	}
 }
 
-void	m_copy_lst(t_list **lst_src, t_list **lst_dst)
-{
-	t_list	*l;
-	t_env	env;
-
-	l = *lst_src;
-	while (l)
-	{
-		env = m_copy_node_env(l);
-		ft_lstpush_back(lst_dst, &env, sizeof(t_env));
-		l = l->next;
-	}
-}
-
 void	m_set_new_env(t_app *app)
 {
 	t_list	*l;
-	char 	**split;
-	int 	find;
+	char	**split;
+	int		find;
 
 	l = app->env_arg;
-	find = 1;
 	if (app->env_flag == 0)
 		m_copy_lst(&app->lst_env, &app->lst_env_tmp);
 	while (l)
@@ -96,13 +93,11 @@ void	m_set_new_env(t_app *app)
 		find = 0;
 		if (ft_strrchr((char*)l->content, '=') != NULL)
 		{
-			find =1;
+			find = 1;
 			split = ft_strsplit((char*)l->content, '=');
 			if (split && split[0])
-			{
 				m_set_env_value_by_key(&app->lst_env_tmp, split[0], split[1]);
-				ft_free_tab(split);
-			}
+			ft_free_tab(split);
 		}
 		if (!find)
 			break ;
@@ -128,7 +123,8 @@ void	m_run_env(t_app *app, char *cmd)
 		{
 			m_set_env_from_lst(app, &app->lst_env_tmp);
 			m_free_lst_envp(&app->lst_env_tmp);
-		} else
+		}
+		else
 			m_set_env_from_lst(app, &app->lst_env);
 		m_run_cmd_with_special_env(app);
 	}

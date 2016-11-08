@@ -24,7 +24,6 @@ int		m_check_access(char *full_path)
 char	*m_get_cmd_path(t_app *app, char *cmd)
 {
 	char	*full_path;
-	char	*path;
 	t_list	*l;
 	int		check_access;
 	int		cmp_access;
@@ -38,8 +37,7 @@ char	*m_get_cmd_path(t_app *app, char *cmd)
 		return (ft_strdup(cmd));
 	while (l)
 	{
-		path = (char*)l->content;
-		full_path = ft_strjoin_free_s1(ft_strjoin(path, "/"), cmd);
+		full_path = ft_strjoin_free_s1(ft_strjoin((char*)l->content, "/"), cmd);
 		cmp_access = m_check_access(full_path);
 		check_access = (cmp_access > check_access) ? cmp_access : check_access;
 		if (check_access == 0)

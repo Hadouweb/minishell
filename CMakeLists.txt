@@ -112,6 +112,8 @@ set(SOURCE_FILES
     srcs/m_env.c
     srcs/m_cd.c
     srcs/m_util_cd.c
+    srcs/m_util_echo.c
+    srcs/m_special_character.c
     auteur
     Makefile
     minishell)

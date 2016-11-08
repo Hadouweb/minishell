@@ -27,6 +27,8 @@ SRC = 	$(SRCPATH)/main.c\
         $(SRCPATH)/m_unsetenv.c\
         $(SRCPATH)/m_cd.c\
         $(SRCPATH)/m_util_cd.c\
+        $(SRCPATH)/m_util_echo.c\
+        $(SRCPATH)/m_special_character.c\
 
 OBJ = $(SRC:.c=.o)
 

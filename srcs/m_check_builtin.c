@@ -41,30 +41,13 @@ char	*m_get_builtin(char *cmd, int *i)
 	return (builtin);
 }
 
-int		m_check_builtin(t_app *app, char *cmd)
+int		m_check_builtin2(t_app *app, char *cmd, char *builtin)
 {
 	int		ret;
-	char	*builtin;
-	int		i;
 
 	ret = 0;
-	i = 0;
-	while (cmd[i] == ' ' || cmd[i] == '\t')
-		i++;
-	builtin = m_get_builtin(cmd, &i);
-	if (builtin == NULL)
-		return (-1);
-	if (ft_strcmp(builtin, "exit") == 0 && (ret = 1))
-	{
-		m_free_all(app);
-		ft_strdel(&builtin);
-		m_free_char_lst(&app->lst_cmd);
-		exit(0);
-	}
-	else if (ft_strcmp(builtin, "echo") == 0 && (ret = 1))
-	{
+	if (ft_strcmp(builtin, "echo") == 0 && (ret = 1))
 		m_run_echo(app, cmd);
-	}
 	else if (ft_strcmp(builtin, "env") == 0 && (ret = 1))
 		m_run_env(app, cmd);
 	else if (ft_strcmp(builtin, "setenv") == 0 && (ret = 1))
@@ -73,6 +56,30 @@ int		m_check_builtin(t_app *app, char *cmd)
 		m_run_unsetenv(app, cmd);
 	else if (ft_strcmp(builtin, "cd") == 0 && (ret = 1))
 		m_run_cd(app, cmd);
+	return (ret);
+}
+
+int		m_check_builtin(t_app *app, char *cmd)
+{
+	int		ret;
+	char	*builtin;
+	int		i;
+
+	i = 0;
+	while (cmd[i] == ' ' || cmd[i] == '\t')
+		i++;
+	builtin = m_get_builtin(cmd, &i);
+	if (builtin == NULL)
+		return (-1);
+	if (ft_strcmp(builtin, "exit") == 0)
+	{
+		m_free_all(app);
+		ft_strdel(&builtin);
+		m_free_char_lst(&app->lst_cmd);
+		exit(0);
+	}
+	else
+		ret = m_check_builtin2(app, cmd, builtin);
 	ft_strdel(&builtin);
 	return (ret);
 }

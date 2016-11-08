@@ -94,9 +94,12 @@
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_print.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstprint.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/libft/srcs/list/ft_lstd_new.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util_echo.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_special_character.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_free_memory.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_cd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_error.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/srcs/m_util_cd.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_set_env_var.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/main.c" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/srcs/m_unsetenv.c" isTestSource="false" />
@@ -133,7 +136,6 @@
           <root url="file:///System/Library/Frameworks/InstantMessage.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MapKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DirectoryService.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/InstallerPlugins.framework/Headers" />
           <root url="file:///System/Library/Frameworks/ForceFeedback.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreMediaIO.framework/Headers" />
@@ -209,6 +211,7 @@
           <root url="file:///System/Library/Frameworks/OpenDirectory.framework/Frameworks/CFOpenDirectory.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudio.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DiskArbitration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreBluetooth.framework/Headers" />
@@ -312,7 +315,6 @@
           <root url="file:///System/Library/Frameworks/InstantMessage.framework/Headers" />
           <root url="file:///System/Library/Frameworks/MapKit.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DirectoryService.framework/Headers" />
-          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/InstallerPlugins.framework/Headers" />
           <root url="file:///System/Library/Frameworks/ForceFeedback.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreMediaIO.framework/Headers" />
@@ -388,6 +390,7 @@
           <root url="file:///System/Library/Frameworks/OpenDirectory.framework/Frameworks/CFOpenDirectory.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Headers" />
           <root url="file:///System/Library/Frameworks/IOBluetooth.framework/Frameworks/CoreBluetooth.framework/Headers" />
+          <root url="file:///System/Library/Frameworks/ScriptingBridge.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreAudio.framework/Headers" />
           <root url="file:///System/Library/Frameworks/DiskArbitration.framework/Headers" />
           <root url="file:///System/Library/Frameworks/CoreBluetooth.framework/Headers" />

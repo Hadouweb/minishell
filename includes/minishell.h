@@ -95,5 +95,12 @@ t_env	m_copy_node_env(t_list *n);
 void	m_set_path_node(t_app *app);
 void	m_check_path(t_app *app, char *path_cmd);
 void	m_run_chdir(t_app *app, char *path);
+int		m_set_special_character2(char *new_str, char *str);
+int		m_set_special_character(char *new_str, char *str);
+char	*m_get_backslash_echo(char *str);
+char	*m_join_echo_arg(t_app *app);
+int		m_set_octacl_special_char(char *str);
+void	m_copy_lst(t_list **lst_src, t_list **lst_dst);
+int		m_secure_egal_char(char *key, char *value);
 
 #endif

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   m_set_env_var.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nle-bret <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/11/08 22:42:11 by nle-bret          #+#    #+#             */
+/*   Updated: 2016/11/08 22:42:17 by nle-bret         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "minishell.h"
 
-char 	*m_find_env_var(t_app *app, char *var)
+char	*m_find_env_var(t_app *app, char *var)
 {
 	t_list	*l;
-	char 	*value;
+	char	*value;
 
 	value = NULL;
 	l = app->lst_env;
@@ -13,7 +25,7 @@ char 	*m_find_env_var(t_app *app, char *var)
 		{
 			if (((t_env*)l->content)->value)
 				value = ft_strdup(((t_env*)l->content)->value);
-			break;
+			break ;
 		}
 		l = l->next;
 	}
@@ -24,15 +36,15 @@ char 	*m_find_env_var(t_app *app, char *var)
 
 char	*m_set_var(t_app *app, char *cmd, char *str_1)
 {
-	int 	i;
-	char 	*var;
-	char 	*value_var;
-	char 	*new_str;
-	char 	*str_2;
+	int		i;
+	char	*var;
+	char	*value_var;
+	char	*new_str;
+	char	*str_2;
 
 	i = 1;
 	while (cmd[i] && cmd[i] != ' ' && cmd[i] != '$'
-		&& cmd[i] != '/' && cmd[i] != '.' && cmd[i] != '"')
+			&& cmd[i] != '/' && cmd[i] != '.' && cmd[i] != '"')
 		i++;
 	var = ft_strndup(cmd + 1, i - 1);
 	str_2 = ft_strsub(cmd, i, ft_strlen(&cmd[i]));
@@ -45,10 +57,10 @@ char	*m_set_var(t_app *app, char *cmd, char *str_1)
 
 void	m_set_env_var(t_app *app, char **cmd)
 {
-	int 	i;
-	int 	loop;
-	char 	*tmp;
-	char 	*str_1;
+	int		i;
+	int		loop;
+	char	*tmp;
+	char	*str_1;
 
 	i = 0;
 	loop = 1;
@@ -65,7 +77,7 @@ void	m_set_env_var(t_app *app, char **cmd)
 				ft_strdel(&tmp);
 				ft_strdel(&str_1);
 				loop = 1;
-				break;
+				break ;
 			}
 			i++;
 		}
