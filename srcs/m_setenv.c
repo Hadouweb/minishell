@@ -2,12 +2,10 @@
 
 void	m_add_env(t_app *app)
 {
-	t_list	*l;
 	char 	*key;
 	char 	*value;
 	t_env	env;
 
-	l = app->param;
 	ft_bzero(&env, sizeof(t_env));
 	key = m_get_key_param(app);
 	value = m_get_value_param(app);
@@ -26,7 +24,9 @@ int 	m_replace_env(t_app *app)
 	char 	*key;
 	char 	*value;
 	char 	*tmp;
+	int 	ret;
 
+	ret = 0;
 	l = app->lst_env;
 	key = m_get_key_param(app);
 	value = m_get_value_param(app);
@@ -35,9 +35,9 @@ int 	m_replace_env(t_app *app)
 		m_error2("the character '=' is not allowed");
 		ft_strdel(&key);
 		ft_strdel(&value);
-		return (-1);
+		ret = -1;
 	}
-	if (key)
+	else if (key)
 	{
 		while (l && ft_strcmp(((t_env*)l->content)->key, key) != 0)
 			l = l->next;
@@ -46,11 +46,13 @@ int 	m_replace_env(t_app *app)
 			tmp = ((t_env*)l->content)->value;
 			((t_env*)l->content)->value = value;
 			ft_strdel(&tmp);
-			ft_strdel(&key);
-			return (1);
+			ret = 1;
 		}
+		else
+			ft_strdel(&value);
+		ft_strdel(&key);
 	}
-	return (0);
+	return (ret);
 }
 
 char 	*m_get_key_param(t_app *app)

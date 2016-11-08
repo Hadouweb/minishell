@@ -32,6 +32,7 @@ void	m_run_chdir(t_app *app, char *path)
 {
 	int		error;
 	char 	buf[1024];
+	char	*tmp;
 
 	error = m_check_access_cd(path);
 	if (error == 0)
@@ -41,7 +42,9 @@ void	m_run_chdir(t_app *app, char *path)
 			path = getcwd(buf, 1023);
 			if (path)
 			{
-				m_set_env_value_by_key(app, "PWD", ft_strdup(path));
+				tmp = ft_strdup(path);
+				m_set_env_value_by_key(app, "PWD", tmp);
+				ft_strdel(&tmp);
 			}
 		}
 	}
