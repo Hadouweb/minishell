@@ -46,8 +46,6 @@ void	m_delete_env(t_app *app, char *key)
 		}
 		m_free_lst_envp(&app->lst_env);
 		app->lst_env = new_lst_env;
-		ft_free_tab(app->env);
-		app->env = NULL;
 		m_set_env_from_lst(app, &app->lst_env);
 	}
 }

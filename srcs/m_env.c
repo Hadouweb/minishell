@@ -6,8 +6,6 @@ void	m_print_env(t_app *app, t_list **lst)
 	char 	**env;
 
 	i = 0;
-	ft_free_tab(app->env);
-	app->env = NULL;
 	m_set_env_from_lst(app, lst);
 	env = app->env;
 	while (env && env[i])
@@ -93,7 +91,7 @@ void	m_set_new_env(t_app *app)
 	find = 1;
 	if (app->env_flag == 0)
 		m_copy_lst(&app->lst_env, &app->lst_env_tmp);
-	while (l && find)
+	while (l)
 	{
 		find = 0;
 		if (ft_strrchr((char*)l->content, '=') != NULL)
@@ -106,6 +104,8 @@ void	m_set_new_env(t_app *app)
 				ft_free_tab(split);
 			}
 		}
+		if (!find)
+			break ;
 		l = l->next;
 	}
 	app->env_arg = l;
@@ -121,10 +121,10 @@ void	m_run_env(t_app *app, char *cmd)
 	{
 		m_split_cmd_with_del_quote(app, cmd);
 		m_check_flag_env(app);
+		m_set_new_env(app);
 		ft_free_tab(app->env);
 		app->env = NULL;
-		m_set_new_env(app);
-		if (ft_lstsize(app->lst_env_tmp) > 0)
+		if (ft_lstsize(app->lst_env_tmp) > 0 || app->env_flag & ENV_OPT_I)
 		{
 			m_set_env_from_lst(app, &app->lst_env_tmp);
 			m_free_lst_envp(&app->lst_env_tmp);
