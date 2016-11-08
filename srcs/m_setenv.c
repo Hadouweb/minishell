@@ -41,8 +41,8 @@ int		m_replace_env(t_app *app)
 	l = app->lst_env;
 	key = m_get_key_param(app);
 	value = m_get_value_param(app);
-	ret = m_secure_egal_char(key, value);
-	if (key)
+	ret = m_secure_egal_char(&key, &value);
+	if (key && ret == 0)
 	{
 		while (l && ft_strcmp(((t_env*)l->content)->key, key) != 0)
 			l = l->next;

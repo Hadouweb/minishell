@@ -44,16 +44,16 @@ void	m_copy_lst(t_list **lst_src, t_list **lst_dst)
 	}
 }
 
-int		m_secure_egal_char(char *key, char *value)
+int		m_secure_egal_char(char **key, char **value)
 {
 	int		ret;
 
 	ret = 0;
-	if (ft_strchr(key, '=') || ft_strchr(value, '='))
+	if (ft_strchr(*key, '=') || ft_strchr(*value, '='))
 	{
 		m_error2("the character '=' is not allowed");
-		ft_strdel(&key);
-		ft_strdel(&value);
+		ft_strdel(key);
+		ft_strdel(value);
 		ret = -1;
 	}
 	return (ret);
