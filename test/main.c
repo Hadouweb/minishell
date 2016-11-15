@@ -23,7 +23,7 @@ void	cmd(char *cmd, char *param)
 
 	sprintf(str_cmd, "echo '%s%s' > test_cmd", cmd, param);
 	system(str_cmd);
-	sprintf(str1, "bash --posix < test_cmd 1> output1 2> outputerr1");
+	sprintf(str1, "csh < test_cmd 1> output1 2> outputerr1");
 	sprintf(str2, "../minishell < test_cmd 1> output2 2> outputerr2");
 
 	//printf("%s\n", str1);
@@ -45,7 +45,15 @@ void	cmd(char *cmd, char *param)
 void	test0(void)
 {
 	printf("\033[035m****************** test0 ******************\033[0m\n");
-	cmd("", "ls -l ..; exit;");
+	//cmd("", "echo lol; exit;");
+	//cmd("", "echo -n end; exit;");
+	//cmd("", "echo -n \"end\"; exit;");
+	//cmd("", "echo \"lol\"; exit;");
+	//cmd("", "echo \"lol\tlol\"; exit;");
+	//cmd("", "echo 'lol  \t lol'; exit;");
+	//cmd("", "cd 'lol  \t lol'; exit;");
+	//cmd("", "unsetenv PATH; ls; env; exit;");
+	//cmd("", "unsetenv HOME; cd; pwd; exit;");
 }
 
 int		main(void)

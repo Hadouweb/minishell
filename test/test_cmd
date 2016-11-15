@@ -1,1 +1,1 @@
-ls -l ..; exit;
+env -i "bash <(echo env)"; exit;
