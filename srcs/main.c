@@ -80,7 +80,7 @@ int		main(int ac, char **av, char **envp)
 	while (1)
 	{
 		cmd = ft_strdup("");
-		ft_putstr("$> ");
+		//ft_putstr("$> ");
 		m_read_cmd(&cmd);
 		m_separate_cmd(&app, &cmd);
 	}

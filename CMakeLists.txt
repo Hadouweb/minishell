@@ -99,7 +99,6 @@ set(SOURCE_FILES
     libft/srcs/str/ft_atoi_base.c
     srcs/main.c
     srcs/m_set_data.c
-        srcs/m_debug.txt
     srcs/m_free_memory.c
     srcs/m_check_builtin.c
     srcs/m_echo.c
@@ -116,7 +115,6 @@ set(SOURCE_FILES
     srcs/m_util_echo.c
     srcs/m_special_character.c
     auteur
-    Makefile
-    minishell)
+    Makefile)
 
 add_executable(minishell ${SOURCE_FILES})

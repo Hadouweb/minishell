@@ -71,8 +71,6 @@ void	m_set_env_from_lst(t_app *app, t_list **lst)
 	i = 0;
 	l = *lst;
 	nb_env = ft_lstsize(l);
-	ft_free_tab(app->env);
-	app->env = NULL;
 	if ((app->env = (char**)ft_memalloc((nb_env + 1) * sizeof(char*))) == NULL)
 		m_error_malloc("m_set_env_from_lst");
 	while (l)

@@ -1,0 +1,10 @@
+total 112
+-rw-r--r--   1 hadouweb  staff   3596 15 nov 15:32 CMakeLists.txt
+-rw-r--r--   1 hadouweb  staff   1193 15 nov 15:31 Makefile
+-rw-r--r--   1 hadouweb  staff      9 31 oct 23:08 auteur
+drwxr-xr-x   3 hadouweb  staff    102 15 nov 15:31 includes
+drwxr-xr-x  10 hadouweb  staff    340 15 nov 17:06 libft
+-rwxr-xr-x   1 hadouweb  staff  43068 15 nov 17:12 minishell
+drwxr-xr-x   3 hadouweb  staff    102  2 nov 16:38 minishell.dSYM
+drwxr-xr-x  36 hadouweb  staff   1224 15 nov 17:12 srcs
+drwxr-xr-x  14 hadouweb  staff    476 15 nov 17:42 test
