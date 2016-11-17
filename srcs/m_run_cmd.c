@@ -75,7 +75,10 @@ void	m_exec_cmd(t_app *app, char *cmd_bin, char **cmd_arg, char **env)
 	{
 		val = execve(cmd_bin, cmd_arg, env);
 		if (val == -1)
+		{
 			ft_putendl_fd("Error execve", 2);
+			exit(0);
+		}
 	}
 }
 
