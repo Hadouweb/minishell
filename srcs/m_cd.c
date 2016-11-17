@@ -63,6 +63,7 @@ void	m_run_chdir(t_app *app, char *path)
 				m_set_env_value_by_key(&app->lst_env, "OLDPWD", oldpwd);
 				ft_strdel(&oldpwd);
 			}
+			m_set_env_from_lst(app, &app->lst_env);
 			ft_strdel(&tmp);
 		}
 	}
