@@ -65,7 +65,7 @@ void	m_run_cmd_with_special_env(t_app *app)
 		cmd = ft_strdup((char*)l->content);
 		while (l && l->next)
 		{
-			cmd = ft_strjoin(cmd, " ");
+			cmd = ft_strjoin_free_s1(cmd, " ");
 			str2 = (char*)l->next->content;
 			cmd = ft_strjoin_free_s1(cmd, str2);
 			l = l->next;
