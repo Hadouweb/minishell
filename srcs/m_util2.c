@@ -30,6 +30,20 @@ void	m_set_shlvl(t_app *app)
 	ft_strdel(&new_value);
 }
 
+void	m_set_pwd(t_app *app)
+{
+	char	*value;
+	char	*new_value;
+	char	buf[1024];
+
+	value = m_get_value_env_by_key(app, "PWD");
+	if (value == NULL)
+	{
+		new_value = getcwd(buf, 1023);
+		m_set_env_value_by_key(&app->lst_env, "PWD", new_value);
+	}
+}
+
 void	m_copy_lst(t_list **lst_src, t_list **lst_dst)
 {
 	t_list	*l;

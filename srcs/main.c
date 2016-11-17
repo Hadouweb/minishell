@@ -77,6 +77,7 @@ int		main(int ac, char **av, char **envp)
 	ft_bzero(&app, sizeof(t_app));
 	m_set_envp(&app, envp);
 	m_set_shlvl(&app);
+	m_set_pwd(&app);
 	signal(SIGINT, m_signal_handler);
 	while (1)
 	{

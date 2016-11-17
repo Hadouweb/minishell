@@ -103,6 +103,7 @@ int					m_set_octacl_special_char(char *str);
 void				m_copy_lst(t_list **lst_src, t_list **lst_dst);
 int					m_secure_egal_char(char **key, char **value);
 void	m_run_exit(t_app *app, char *cmd, char *builtin);
+void	m_set_pwd(t_app *app);
 
 void	m_debug_content_env(void *content);
 

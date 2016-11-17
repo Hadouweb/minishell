@@ -42,7 +42,7 @@ $(NAME): $(LIBNAME) $(OBJ)
 	@echo "\n\033[39mCompilation done.\033[0m"
 
 $(LIBNAME):
-	@make -C $(LIBFTPATH)
+	@make -C $(LIBFTPATH) -j 8
 
 %.o: %.c
 	@$(CC) -o $@ -c $< $(HEADER)

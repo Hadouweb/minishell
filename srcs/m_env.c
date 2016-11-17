@@ -125,10 +125,12 @@ void	m_debug_content_env(void *content)
 	}
 }
 
-void	m_run_env(t_app *app, char *cmd)
-{
+void	m_run_env(t_app *app, char *cmd) {
 	if (ft_strcmp(cmd, "env") == 0)
+	{
+		m_set_env_from_lst(app, &app->lst_env);
 		m_print_env(app);
+	}
 	else
 	{
 		m_split_cmd_with_del_quote(app, cmd);
@@ -136,7 +138,7 @@ void	m_run_env(t_app *app, char *cmd)
 		m_set_new_env(app);
 		ft_free_tab(app->env);
 		app->env = NULL;
-		if (app->env_flag & ENV_OPT_I)
+		if (ft_lstsize(app->lst_env_tmp) > 0 || app->env_flag & ENV_OPT_I)
 		{
 			m_set_env_from_lst(app, &app->lst_env_tmp);
 			m_free_lst_envp(&app->lst_env_tmp);
@@ -144,6 +146,7 @@ void	m_run_env(t_app *app, char *cmd)
 		else
 			m_set_env_from_lst(app, &app->lst_env);
 		m_run_cmd_with_special_env(app);
+		m_print_env(app);
 	}
 	m_free_char_lst(&app->param);
 	app->env_flag = 0;
