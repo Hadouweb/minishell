@@ -42,10 +42,10 @@ void	m_check_path(t_app *app, char *path_cmd)
 
 int		m_check_access_cd(char *path)
 {
-	if (access(path, X_OK) == -1)
-		return (-2);
 	if (access(path, F_OK) == -1)
 		return (-1);
+	if (access(path, X_OK) == -1)
+		return (-2);
 	return (0);
 }
 

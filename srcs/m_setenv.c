@@ -98,11 +98,9 @@ void	m_check_setenv_path(t_app *app)
 		l = l->next;
 	if (l && l->content && ((t_env*)l->content)->key)
 	{
-		ft_lstprint(l, NULL);
 		if (ft_strcmp((char *) l->content, "PATH") == 0)
 			m_set_path_node(app);
 	}
-	ft_lstprint(app->lst_env, m_debug_content_env);
 }
 
 void	m_run_setenv(t_app *app, char *cmd)
