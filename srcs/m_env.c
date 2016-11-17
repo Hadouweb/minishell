@@ -76,6 +76,9 @@ void	m_run_cmd_with_special_env(t_app *app)
 		m_run_cmd(app, &cmd);
 		ft_strdel(&cmd);
 	}
+	else
+		m_print_env(app);
+	m_set_env_from_lst(app, &app->lst_env);
 }
 
 void	m_set_new_env(t_app *app)
@@ -127,10 +130,7 @@ void	m_debug_content_env(void *content)
 
 void	m_run_env(t_app *app, char *cmd) {
 	if (ft_strcmp(cmd, "env") == 0)
-	{
-		m_set_env_from_lst(app, &app->lst_env);
 		m_print_env(app);
-	}
 	else
 	{
 		m_split_cmd_with_del_quote(app, cmd);
@@ -146,7 +146,6 @@ void	m_run_env(t_app *app, char *cmd) {
 		else
 			m_set_env_from_lst(app, &app->lst_env);
 		m_run_cmd_with_special_env(app);
-		m_print_env(app);
 	}
 	m_free_char_lst(&app->param);
 	app->env_flag = 0;
