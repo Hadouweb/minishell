@@ -105,6 +105,7 @@ set(SOURCE_FILES
     srcs/m_set_env_var.c
     srcs/m_util.c
     srcs/m_util2.c
+    srcs/m_exit.c
     srcs/m_error.c
     srcs/m_run_cmd.c
     srcs/m_setenv.c

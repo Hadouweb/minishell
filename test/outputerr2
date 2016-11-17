@@ -1,3 +1,0 @@
-minishell: cd: /Users/nle-bret/projects/minishell/test/tst4/. : Permission denied
-minishell: cd: /Users/nle-bret/projects/minishell/test/tst4/.. : Permission denied
-pwd: .: No such file or directory

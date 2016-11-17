@@ -18,7 +18,6 @@ void	m_check_path(t_app *app, char *path_cmd)
 	char	*pwd;
 	char	*tmp;
 
-	printf("m_check_path path_cmd : [%s]\n", path_cmd);
 	if (path_cmd && (curpath = ft_strdup(path_cmd)))
 	{
 		if (curpath[0] != '/' && curpath[0] != '.' &&

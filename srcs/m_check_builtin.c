@@ -66,18 +66,14 @@ int		m_check_builtin(t_app *app, char *cmd)
 	int		i;
 
 	i = 0;
+	ret = 0;
 	while (cmd[i] == ' ' || cmd[i] == '\t')
 		i++;
 	builtin = m_get_builtin(cmd, &i);
 	if (builtin == NULL)
 		return (-1);
-	if (ft_strcmp(builtin, "exit") == 0)
-	{
-		m_free_all(app);
-		ft_strdel(&builtin);
-		m_free_char_lst(&app->lst_cmd);
-		exit(0);
-	}
+	if (ft_strcmp(builtin, "exit") == 0 && (ret = 1))
+		m_run_exit(app, cmd, builtin);
 	else
 		ret = m_check_builtin2(app, cmd, builtin);
 	ft_strdel(&builtin);
