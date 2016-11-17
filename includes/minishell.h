@@ -18,6 +18,7 @@
 # include <sys/types.h>
 # include "libft.h"
 # include <signal.h>
+# include <stdio.h>
 
 # define ECHO_OPT_N 0x01
 
@@ -25,6 +26,7 @@
 
 # define CD_OPT_L 0x01
 # define CD_OPT_P 0x02
+# define CD_OPT_MIN 0x04
 
 int		g_pid;
 
@@ -100,5 +102,7 @@ char				*m_join_echo_arg(t_app *app);
 int					m_set_octacl_special_char(char *str);
 void				m_copy_lst(t_list **lst_src, t_list **lst_dst);
 int					m_secure_egal_char(char **key, char **value);
+
+void	m_debug_content_env(void *content);
 
 #endif

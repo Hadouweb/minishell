@@ -23,12 +23,14 @@ void	m_check_flag_cd(t_app *app)
 	{
 		find = 0;
 		str = (char*)l->content;
+		if (ft_strcmp(str, "-") == 0 && ++find)
+			app->cd_flag |= CD_OPT_MIN;
 		if (ft_strcmp(str, "-L") == 0 && ++find)
 			app->cd_flag |= CD_OPT_L;
 		if (ft_strcmp(str, "-P") == 0 && ++find)
 			app->cd_flag |= CD_OPT_P;
 		if ((ft_strcmp(str, "-PL") == 0 ||
-					ft_strcmp(str, "-LP") == 0) && ++find)
+			 ft_strcmp(str, "-LP") == 0))
 		{
 			app->cd_flag |= CD_OPT_P;
 			app->cd_flag |= CD_OPT_L;
@@ -79,6 +81,17 @@ void	m_cd_home(t_app *app)
 		m_error2("cd: HOME not set");
 }
 
+void	m_cd_oldpwd(t_app *app)
+{
+	char	*old_dir;
+
+	old_dir = m_get_value_env_by_key(app, "OLDPWD");
+	if (old_dir)
+		m_run_chdir(app, old_dir);
+	else
+		m_error2("cd: OLDPWD not set");
+}
+
 void	m_run_cd(t_app *app, char *cmd)
 {
 	char	*path_cmd;
@@ -90,6 +103,8 @@ void	m_run_cd(t_app *app, char *cmd)
 		path_cmd = (char*)app->cd_arg->content;
 		m_check_path(app, path_cmd);
 	}
+	else if (app->cd_flag & CD_OPT_MIN)
+		m_cd_oldpwd(app);
 	else
 		m_cd_home(app);
 	m_free_char_lst(&app->param);

@@ -1,1 +1,1 @@
-env -i "bash <(echo env)"; exit;
+unsetenv HOME; setenv HOME $HOME; echo $HOME; exit;

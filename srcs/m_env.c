@@ -12,13 +12,12 @@
 
 #include "minishell.h"
 
-void	m_print_env(t_app *app, t_list **lst)
+void	m_print_env(t_app *app)
 {
 	int		i;
 	char	**env;
 
 	i = 0;
-	m_set_env_from_lst(app, lst);
 	env = app->env;
 	while (env && env[i])
 	{
@@ -104,14 +103,32 @@ void	m_set_new_env(t_app *app)
 		l = l->next;
 	}
 	app->env_arg = l;
-	if (ft_lstsize(app->env_arg) == 0)
-		m_print_env(app, &app->lst_env_tmp);
+}
+
+void	m_debug_content_env(void *content)
+{
+	t_env	*env;
+	t_list	*l;
+
+	env = (t_env*)content;
+	l = env->lst_value;
+	ft_putstr(env->key);
+	ft_putchar(' ');
+	ft_putstr(env->value);
+	if (l)
+		ft_putchar('\n');
+	while (l)
+	{
+		ft_putchar('\t');
+		ft_putendl((char*)l->content);
+		l = l->next;
+	}
 }
 
 void	m_run_env(t_app *app, char *cmd)
 {
 	if (ft_strcmp(cmd, "env") == 0)
-		m_print_env(app, &app->lst_env);
+		m_print_env(app);
 	else
 	{
 		m_split_cmd_with_del_quote(app, cmd);
@@ -119,7 +136,7 @@ void	m_run_env(t_app *app, char *cmd)
 		m_set_new_env(app);
 		ft_free_tab(app->env);
 		app->env = NULL;
-		if (ft_lstsize(app->lst_env_tmp) > 0 || app->env_flag & ENV_OPT_I)
+		if (app->env_flag & ENV_OPT_I)
 		{
 			m_set_env_from_lst(app, &app->lst_env_tmp);
 			m_free_lst_envp(&app->lst_env_tmp);

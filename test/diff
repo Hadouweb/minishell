@@ -1,4 +1,4 @@
 1c1
-< env: bash <(echo env): No such file or directory
+< HOME: Undefined variable.
 ---
-> bash: <(echo: No such file or directory
+> 
