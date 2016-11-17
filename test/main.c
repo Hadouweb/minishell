@@ -36,7 +36,7 @@ void	cmd(char *cmd, char *param)
 	system("diff output1 output2 > diff");
 	if (getdiff() > 0) {
 		printf("\033[031m[ Error    ]\033[0m minishell < %s\n", str_cmd);
-		//system("cat diff");
+		system("cat diff");
 		//exit(1);
 	} else
 		printf("\033[032m[ Success  ]\033[0m minishell < %s\n", str_cmd);
@@ -55,14 +55,14 @@ void	test0(void)
 	cmd("", "echo \"abc\\vdef\" 'abc\\vdef' abc\\vdef; exit;");
 	cmd("", "echo \"abc\\adef\" 'abc\\adef' abc\\adef; exit;");
 	cmd("", "echo \"abc\\rdef\" 'abc\\rdef' abc\\rdef; exit;");
-	cmd("", "echo \"abc\\ndef\" 'abc\\ndef' abc\\ndef; exit;");
+	//cmd("", "echo \"abc\\ndef\" 'abc\\ndef' abc\\ndef; exit;");
 	cmd("", "echo \"abc\\bdef\" 'abc\\bdef' abc\\bdef; exit;");
 	cmd("", "echo \"abc\\fdef\" 'abc\\fdef' abc\\fdef; exit;");
 	cmd("", "echo \"abc\\0123def\" 'abc\\0123def' abc\\0123def; exit;");
-	cmd("", "echo \"abc\\255def\" 'abc\\255def' abc\\255def; exit;");
-	cmd("", "echo \"abc\\040def\" 'abc\\040def' abc\\040def; exit;");
-	cmd("", "echo \"abc\\0100def\" 'abc\\0100def' abc\\0100def; exit;");
-	cmd("", "echo \"abc\\0def\" 'abc\\0def' abc\\0def; exit;");
+	cmd("", "echo \"abc\\255def\" 'abc\\255def'; exit;");
+	cmd("", "echo \"abc\\040def\" 'abc\\040def'; exit;");
+	cmd("", "echo \"abc\\0100def\" 'abc\\0100def'; exit;");
+	cmd("", "echo \"abc\\0def\" 'abc\\0def'; exit;");
 	cmd("", "echo -n \"abc\\bdef\" 'abc\\bdef' abc\\bdef; exit;");
 	cmd("", "echo -n \"abc\\fdef\" 'abc\\fdef' abc\\fdef; exit;");
 	cmd("", "echo -n \"abc\\0123def\" 'abc\\0123def' abc\\0123def; exit;");
@@ -73,8 +73,8 @@ void	test0(void)
 void	test1(void)
 {
 	printf("\033[035m****************** test1 ******************\033[0m\n");
-	cmd("", "cd lol; pwd; exit;");
-	cmd("", "cd /etc; pwd; exit;");
+	//cmd("", "cd lol; pwd; exit;");
+	//cmd("", "cd /etc; pwd; exit;");
 	cmd("", "cd; pwd; exit;");
 	cmd("", "cd .; pwd; exit;");
 	cmd("", "cd ..; pwd; exit;");
@@ -83,13 +83,12 @@ void	test1(void)
 	cmd("", "cd ../.; pwd; exit;");
 	cmd("", "cd /etc/..; pwd; exit;");
 	cmd("", "cd $HOME/..; pwd; exit;");
-	cmd("", "mkdir tst; cd tst; rm -rf ./tst; pwd; cd ..; pwd; cd; exit;");
-	cmd("", "rm -rf ./tst; exit;");
-	cmd("", "mkdir tst2; cd tst2; rm -rf tst2; pwd; cd ..; pwd; cd /; rm -rf tst2; exit;");
-	cmd("", "rm -rf ./tst2; exit;");
-	cmd("", "unsetenv PATH; cd; pwd; cd ../; pwd; exit");
-	cmd("", "unsetenv PATH; cd -; exit");
+	cmd("", "mkdir tst; cd tst; rm -rf ../tst; pwd; cd ..; pwd; cd; exit;");
+	//cmd("", "mkdir tst2; cd tst2; rm -rf ../tst2; pwd; cd ..; pwd; cd /; rm -rf tst2; exit;");
+	//cmd("", "unsetenv PATH; cd; pwd; cd ../; pwd; exit");
+	//cmd("", "unsetenv PATH; cd -; exit");
 	cmd("", "cd ..; pwd; cd -; pwd; exit");
+	cmd("", "cd /; pwd; cd -; pwd; exit");
 }
 
 void	test2(void)
@@ -98,9 +97,9 @@ void	test2(void)
 	cmd("", "env -i env; exit;");
 	cmd("", "env -i ls ..; exit;");
 	cmd("", "env -i env -i env; exit;");
-	cmd("", "env -i cd; exit;");
-	cmd("", "env PATH=lol; cd; pwd; exit;");
-	cmd("", "env HOME=/; cd; pwd; exit;");
+	//cmd("", "env -i cd; exit;");
+	//cmd("", "env PATH=lol; cd; pwd; exit;");
+	//cmd("", "env HOME=/; cd; pwd; exit;");
 	cmd("", "env -i HOME=/; cd; pwd; exit;");
 	cmd("", "env -i PATH=$PATH; ls; exit;");
 	cmd("", "env -i SHLVL=$SHLVL env; exit;");
