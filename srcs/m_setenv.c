@@ -96,7 +96,7 @@ void	m_check_setenv_path(t_app *app)
 	l = app->param;
 	if (l && l->next)
 		l = l->next;
-	if (l && l->content && ((t_env*)l->content)->key)
+	if (l && l->content)
 	{
 		if (ft_strcmp((char *) l->content, "PATH") == 0)
 			m_set_path_node(app);

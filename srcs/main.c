@@ -43,7 +43,7 @@ void	m_separate_cmd(t_app *app, char **cmd)
 	if (*cmd && ft_strlen(*cmd) > 0)
 	{
 		app->lst_cmd = ft_lstsplit(*cmd, ';');
-		ft_strdel(&(*cmd));
+		ft_strdel(cmd);
 		l = app->lst_cmd;
 		while (l)
 		{
@@ -54,6 +54,7 @@ void	m_separate_cmd(t_app *app, char **cmd)
 		}
 		m_free_char_lst(&app->lst_cmd);
 	}
+	ft_strdel(cmd);
 }
 
 void	m_signal_handler(int val)
@@ -80,7 +81,7 @@ int		main(int ac, char **av, char **envp)
 	while (1)
 	{
 		cmd = ft_strdup("");
-		//ft_putstr("$> ");
+		ft_putstr("$> ");
 		m_read_cmd(&cmd);
 		m_separate_cmd(&app, &cmd);
 	}
