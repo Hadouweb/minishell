@@ -1,4 +1,9 @@
-1c1
-< HOME: Undefined variable.
+1c1,6
+< /Users/nle-bret/projects/minishell/test
 ---
-> 
+> $> path : [/Users/nle-bret/projects/minishell/test/tst4
+> ]path : [/Users/nle-bret/projects/minishell/test/tst4/.
+> ]path : [/Users/nle-bret/projects/minishell/test/tst4/..
+> ]minishell: cd: /Users/nle-bret/projects/minishell/test/tst4/. : Permission denied
+> minishell: cd: /Users/nle-bret/projects/minishell/test/tst4/.. : Permission denied
+> pwd: .: No such file or directory

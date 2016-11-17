@@ -1,1 +1,1 @@
-unsetenv HOME; setenv HOME $HOME; echo $HOME; exit;
+mkdir tst4; cd tst4; rm -rf ../tst4; cd .; cd ..; pwd; exit

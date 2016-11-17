@@ -50,6 +50,7 @@ void	m_run_chdir(t_app *app, char *path)
 	char	*oldpwd;
 
 	error = m_check_access_cd(path);
+	printf("path : [%s\n]", path);
 	if (error == 0 && chdir(path) == 0)
 	{
 		path = getcwd(buf, 1023);

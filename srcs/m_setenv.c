@@ -89,6 +89,22 @@ char	*m_get_value_param(t_app *app)
 	return (value);
 }
 
+void	m_check_setenv_path(t_app *app)
+{
+	t_list	*l;
+
+	l = app->param;
+	if (l && l->next)
+		l = l->next;
+	if (l && l->content && ((t_env*)l->content)->key)
+	{
+		ft_lstprint(l, NULL);
+		if (ft_strcmp((char *) l->content, "PATH") == 0)
+			m_set_path_node(app);
+	}
+	ft_lstprint(app->lst_env, m_debug_content_env);
+}
+
 void	m_run_setenv(t_app *app, char *cmd)
 {
 	m_split_cmd_with_del_quote(app, cmd);
@@ -96,6 +112,7 @@ void	m_run_setenv(t_app *app, char *cmd)
 		ft_putstr_fd("setenv: Too many arguments.\n", 2);
 	else
 	{
+		m_check_setenv_path(app);
 		if (m_replace_env(app) == 0)
 			m_add_env(app);
 		m_set_env_from_lst(app, &app->lst_env);

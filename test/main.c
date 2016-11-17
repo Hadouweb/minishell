@@ -134,7 +134,9 @@ void	test5(void)
 	printf("\033[035m****************** test5 ******************\033[0m\n");
 	cmd("", "mkdir tst3; chmod 000 tst3; cd tst3; exit;");
 	cmd("", "unsetenv HOME; cd; exit;");
+	cmd("", "unsetenv HOME; unsetenv HOME; env; exit;");
 	cmd("", "unsetenv HOME; setenv HOME $HOME; echo $HOME; exit;");
+	cmd("", "mkdir tst4; cd tst4; rm -rf ../tst4; cd .; cd ..; pwd; exit");
 }
 
 int		main(void)
