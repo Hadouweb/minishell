@@ -89,20 +89,6 @@ char	*m_get_value_param(t_app *app)
 	return (value);
 }
 
-void	m_check_setenv_path(t_app *app)
-{
-	t_list	*l;
-
-	l = app->param;
-	if (l && l->next)
-		l = l->next;
-	if (l && l->content)
-	{
-		if (ft_strcmp((char *) l->content, "PATH") == 0)
-			m_set_path_node(app);
-	}
-}
-
 void	m_run_setenv(t_app *app, char *cmd)
 {
 	m_split_cmd_with_del_quote(app, cmd);

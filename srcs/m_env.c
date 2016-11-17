@@ -108,27 +108,8 @@ void	m_set_new_env(t_app *app)
 	app->env_arg = l;
 }
 
-void	m_debug_content_env(void *content)
+void	m_run_env(t_app *app, char *cmd)
 {
-	t_env	*env;
-	t_list	*l;
-
-	env = (t_env*)content;
-	l = env->lst_value;
-	ft_putstr(env->key);
-	ft_putchar(' ');
-	ft_putstr(env->value);
-	if (l)
-		ft_putchar('\n');
-	while (l)
-	{
-		ft_putchar('\t');
-		ft_putendl((char*)l->content);
-		l = l->next;
-	}
-}
-
-void	m_run_env(t_app *app, char *cmd) {
 	if (ft_strcmp(cmd, "env") == 0)
 		m_print_env(app);
 	else

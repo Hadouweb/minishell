@@ -29,12 +29,6 @@ void	m_check_flag_cd(t_app *app)
 			app->cd_flag |= CD_OPT_L;
 		if (ft_strcmp(str, "-P") == 0 && ++find)
 			app->cd_flag |= CD_OPT_P;
-		if ((ft_strcmp(str, "-PL") == 0 ||
-			 ft_strcmp(str, "-LP") == 0))
-		{
-			app->cd_flag |= CD_OPT_P;
-			app->cd_flag |= CD_OPT_L;
-		}
 		if (!find)
 			break ;
 		l = l->next;
