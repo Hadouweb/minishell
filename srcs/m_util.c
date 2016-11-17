@@ -26,11 +26,11 @@ void	m_split_cmd_with_del_quote(t_app *app, char *cmd)
 		{
 			tmp = sub_word;
 			sub_word = ft_del_char(sub_word, sub_word[0]);
-			len += 2;
+			cmd += 2;
 			ft_strdel(&tmp);
 		}
 		len += ft_strlen(sub_word);
-		ft_lstpush_back(&app->param, (void*)sub_word, len + 1);
+		ft_lstpush_back(&app->param, sub_word, len + 1);
 		cmd += len;
 		ft_strdel(&sub_word);
 	}
